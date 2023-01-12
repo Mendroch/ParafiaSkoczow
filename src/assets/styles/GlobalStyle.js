@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -13,9 +13,20 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Fira Sans", sans-serif;
     margin: 0;
     padding: 0;
+    background: linear-gradient(
+      180deg,
+      #1B7290 0%,
+      #50A7C0 100%
+    );
+    overflow: hidden;
   }
   
   a, button {
     font-family: "Fira Sans", sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  a:focus {
+    text-decoration: none;
   }
 `;
