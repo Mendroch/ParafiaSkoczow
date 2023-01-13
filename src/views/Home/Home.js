@@ -10,12 +10,6 @@ const Home = () => {
         <h1>PARAFIA SKOCZÓW</h1>
       </HeaderContainer>
       <LinksContainer>
-        <NavLink to="/categories">PIEŚNI</NavLink>
-        <NavLink to="/categories">MODLITWY</NavLink>
-        <NavLink>LITURGIA</NavLink>
-        <NavLink>OGŁOSZENIA</NavLink>
-        <NavLink>INTENCJE MSZY</NavLink>
-        <NavLink>KOLĘDA</NavLink>
         <a
           href="https://www.youtube.com/watch?v=xSdIBGA0-7I&ab_channel=ParafiaSkocz%C3%B3w-transmisjaonline"
           target="_blank"
@@ -23,6 +17,11 @@ const Home = () => {
         >
           TRANSMISJA ONLINE
         </a>
+        <NavLink to="/categories">PIEŚNI</NavLink>
+        <NavLink to="/categories">MODLITWY</NavLink>
+        <NavLink>LITURGIA</NavLink>
+        <NavLink>OGŁOSZENIA</NavLink>
+        <NavLink>INTENCJE MSZY</NavLink>
       </LinksContainer>
     </Wrapper>
   );
