@@ -10,8 +10,8 @@ const Home = () => {
         <h1>PARAFIA SKOCZÓW</h1>
       </HeaderContainer>
       <LinksContainer>
-        <NavLink>PIEŚNI</NavLink>
-        <NavLink>MODLITWY</NavLink>
+        <NavLink to="/categories">PIEŚNI</NavLink>
+        <NavLink to="/categories">MODLITWY</NavLink>
         <NavLink>LITURGIA</NavLink>
         <NavLink>OGŁOSZENIA</NavLink>
         <NavLink>INTENCJE MSZY</NavLink>
