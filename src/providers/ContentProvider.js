@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
-export const ContentContext = React.createContext({});
+export const ContentContext = React.createContext({
+  content: {},
+  whetherOpenLoading: () => {},
+});
 
 const queries = {
   songs: 'https://kmendroch.lk.pl/api/songs',
@@ -15,7 +18,9 @@ const queries = {
 };
 
 const getContent = () => {
-  return {};
+  return localStorage.getItem('content')
+    ? JSON.parse(localStorage.getItem('content'))
+    : {};
 };
 
 const reducer = (state, action) => {
@@ -45,7 +50,24 @@ const ContentProvider = ({ children }) => {
     }
   }, []);
 
-  return <ContentContext.Provider value={{}}>{children}</ContentContext.Provider>;
+  useEffect(() => {
+    localStorage.setItem('content', JSON.stringify(content));
+  }, [content]);
+
+  const whetherOpenLoading = () => {
+    return Object.keys(content).length < Object.keys(queries).length;
+  };
+
+  return (
+    <ContentContext.Provider
+      value={{
+        content,
+        whetherOpenLoading,
+      }}
+    >
+      {children}
+    </ContentContext.Provider>
+  );
 };
 
 export default ContentProvider;

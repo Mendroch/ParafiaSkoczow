@@ -52,3 +52,20 @@ export const LinksContainer = styled.div`
     }
   }
 `;
+
+export const Loading = styled.div`
+  width: 70px;
+  height: 70px;
+  animation: rotate 1.3s linear infinite;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+`;
