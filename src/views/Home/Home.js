@@ -13,7 +13,7 @@ import { ReactComponent as LoadIcon } from 'assets/icons/load.svg';
 import { ContentContext } from 'providers/ContentProvider';
 
 const Home = () => {
-  const { content, whetherOpenLoading } = useContext(ContentContext);
+  const { content, whetherOpenLoading, setType } = useContext(ContentContext);
   const { isOpen, handleOpenModal, handleCloseModal } = useModal();
 
   useEffect(() => {
@@ -35,11 +35,21 @@ const Home = () => {
         >
           TRANSMISJA ONLINE
         </a>
-        <NavLink to="/categories">PIEŚNI</NavLink>
-        <NavLink to="/categories">MODLITWY</NavLink>
-        <NavLink>LITURGIA</NavLink>
-        <NavLink>OGŁOSZENIA</NavLink>
-        <NavLink>INTENCJE MSZY</NavLink>
+        <NavLink to="/categories" onClick={() => setType('songs')}>
+          PIEŚNI
+        </NavLink>
+        <NavLink to="/categories" onClick={() => setType('prayers')}>
+          MODLITWY
+        </NavLink>
+        <NavLink to="/categories" onClick={() => setType('liturgy')}>
+          LITURGIA
+        </NavLink>
+        <NavLink to="/text" onClick={() => setType('announcements')}>
+          OGŁOSZENIA
+        </NavLink>
+        <NavLink to="/text" onClick={() => setType('intentions')}>
+          INTENCJE MSZY
+        </NavLink>
       </LinksContainer>
       <Modal isOpen={isOpen}>
         <Loading>

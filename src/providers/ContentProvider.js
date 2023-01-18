@@ -4,6 +4,8 @@ import axios from 'axios';
 export const ContentContext = React.createContext({
   content: {},
   whetherOpenLoading: () => {},
+  setType: () => {},
+  getContent: () => {},
 });
 
 const queries = {
@@ -17,7 +19,7 @@ const queries = {
   intentions: 'https://www.parafiaskoczow.ox.pl/api/pages/75',
 };
 
-const getContent = () => {
+const getLocalStorageContent = () => {
   return localStorage.getItem('content')
     ? JSON.parse(localStorage.getItem('content'))
     : {};
@@ -30,9 +32,18 @@ const reducer = (state, action) => {
   };
 };
 
+const sortData = (data) => {
+  return data[0]
+    ? data.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      })
+    : data;
+};
+
 const ContentProvider = ({ children }) => {
-  const [content, dispatch] = useReducer(reducer, getContent());
-  const [error, setError] = useState('');
+  const [content, dispatch] = useReducer(reducer, getLocalStorageContent());
+  const [type, setType] = useState('');
+  // const [error, setError] = useState('');
 
   useEffect(() => {
     for (const query in queries) {
@@ -41,11 +52,11 @@ const ContentProvider = ({ children }) => {
         .then(({ data }) => {
           dispatch({
             field: query,
-            value: data,
+            value: sortData(data),
           });
         })
         .catch(() => {
-          setError(`Błąd połączenia z internetem`);
+          // setError(`Błąd połączenia z internetem`);
         });
     }
   }, []);
@@ -58,11 +69,31 @@ const ContentProvider = ({ children }) => {
     return Object.keys(content).length < Object.keys(queries).length;
   };
 
+  const getContent = () => {
+    switch (window.location.pathname) {
+      case '/categories':
+        switch (type) {
+          case 'songs':
+            return content.songsCategories;
+          case 'prayers':
+            return content.prayersCategories;
+          case 'liturgy':
+            return content.liturgyCategories;
+          default:
+            return null;
+        }
+      default:
+        return null;
+    }
+  };
+
   return (
     <ContentContext.Provider
       value={{
         content,
         whetherOpenLoading,
+        setType,
+        getContent,
       }}
     >
       {children}
