@@ -6,6 +6,10 @@ export const ContentContext = React.createContext({
   whetherOpenLoading: () => {},
   setType: () => {},
   getContent: () => {},
+  setCategoryId: () => {},
+  setTextId: () => {},
+  getCategory: () => {},
+  getType: () => {},
 });
 
 const queries = {
@@ -43,7 +47,13 @@ const sortData = (data) => {
 const ContentProvider = ({ children }) => {
   const [content, dispatch] = useReducer(reducer, getLocalStorageContent());
   const [type, setType] = useState('');
+  const [categoryId, setCategoryId] = useState('');
+  const [textId, setTextId] = useState('');
   // const [error, setError] = useState('');
+
+  // useEffect(() => {
+  //   console.log(content);
+  // }, [content]);
 
   useEffect(() => {
     for (const query in queries) {
@@ -69,6 +79,45 @@ const ContentProvider = ({ children }) => {
     return Object.keys(content).length < Object.keys(queries).length;
   };
 
+  const selectTitles = (content) => {
+    return content.filter((text) => text.category_id === categoryId);
+  };
+
+  const getType = () => {
+    switch (type) {
+      case 'songs':
+        return 'Pieśni';
+      case 'prayers':
+        return 'Modlitwy';
+      case 'liturgy':
+        return 'Liturgia';
+      case 'announcements':
+        return 'Ogłoszenia';
+      case 'intentions':
+        return 'Intencje mszalne';
+      default:
+        return '---';
+    }
+  };
+
+  const getCategory = () => {
+    let categories;
+    switch (type) {
+      case 'songs':
+        categories = content.songsCategories;
+        break;
+      case 'prayers':
+        categories = content.prayersCategories;
+        break;
+      case 'liturgy':
+        categories = content.liturgyCategories;
+        break;
+      default:
+        categories = null;
+    }
+    return categories.find((category) => category.id === categoryId).name;
+  };
+
   const getContent = () => {
     switch (window.location.pathname) {
       case '/categories':
@@ -79,6 +128,17 @@ const ContentProvider = ({ children }) => {
             return content.prayersCategories;
           case 'liturgy':
             return content.liturgyCategories;
+          default:
+            return null;
+        }
+      case '/titles':
+        switch (type) {
+          case 'songs':
+            return selectTitles(content.songs);
+          case 'prayers':
+            return selectTitles(content.prayers);
+          case 'liturgy':
+            return selectTitles(content.liturgy);
           default:
             return null;
         }
@@ -94,6 +154,10 @@ const ContentProvider = ({ children }) => {
         whetherOpenLoading,
         setType,
         getContent,
+        setCategoryId,
+        setTextId,
+        getCategory,
+        getType,
       }}
     >
       {children}

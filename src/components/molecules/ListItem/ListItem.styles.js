@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(NavLink)`
   display: flex;
   align-items: center;
   height: 50px;
+  color: ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSize.m};
 
   &:not(:last-of-type) {

@@ -1,8 +1,12 @@
 import React from 'react';
 import { Wrapper } from './ListItem.styles';
 
-const ListItem = ({ text }) => {
-  return <Wrapper>{text}</Wrapper>;
+const ListItem = ({ elem, address, setCategoryId }) => {
+  return (
+    <Wrapper to={address} onClick={() => setCategoryId(elem.id)}>
+      {elem.name}
+    </Wrapper>
+  );
 };
 
 export default ListItem;

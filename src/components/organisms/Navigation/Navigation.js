@@ -4,7 +4,7 @@ import { Wrapper, Group, BackButton, StyledLink } from './Navigation.styles';
 import { ReactComponent as BackIcon } from 'assets/icons/arrow.svg';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 
-const Navigation = () => {
+const Navigation = ({ type }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ const Navigation = () => {
         <BackButton onClick={() => navigate(-1)}>
           <BackIcon />
         </BackButton>
-        <p>Pieśni</p>
+        <p>{type}</p>
       </Group>
       <StyledLink to="/search">
         <SearchIcon />

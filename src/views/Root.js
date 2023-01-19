@@ -5,6 +5,7 @@ import { theme } from 'assets/styles/theme';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from 'views/Home/Home';
 import Categories from 'views/Categories/Categories';
+import Titles from 'views/Titles/Titles';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import ContentProvider from 'providers/ContentProvider';
 
@@ -18,6 +19,7 @@ const Root = () => {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="/titles" element={<Titles />} />
             </Routes>
           </ContentProvider>
         </MainTemplate>
