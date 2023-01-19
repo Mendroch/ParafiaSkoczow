@@ -2,19 +2,27 @@ import React, { useContext } from 'react';
 import { ViewWrapper } from 'components/atoms/ViewWrapper/ViewWrapper';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import { Category } from 'components/atoms/Category/Category';
-import List from 'components/organisms/List/List';
 import { ContentContext } from 'providers/ContentProvider';
+import { Wrapper, TextTitle, Content } from './Text.styles';
 
-const Titles = () => {
-  const { setTextId, getCategory, getType } = useContext(ContentContext);
+const Text = () => {
+  const { getCategory, getType, getContent } = useContext(ContentContext);
+  let content = getContent();
+
+  const createContent = (content) => {
+    return { __html: content };
+  };
 
   return (
     <ViewWrapper>
       <Navigation type={getType()} />
       <Category>{getCategory()}</Category>
-      <List nextPage={'/text'} setId={setTextId} />
+      <Wrapper>
+        <TextTitle>{content.name}</TextTitle>
+        <Content dangerouslySetInnerHTML={createContent(content.content)} />
+      </Wrapper>
     </ViewWrapper>
   );
 };
 
-export default Titles;
+export default Text;

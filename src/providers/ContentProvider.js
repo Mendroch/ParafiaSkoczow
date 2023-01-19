@@ -83,6 +83,10 @@ const ContentProvider = ({ children }) => {
     return content.filter((text) => text.category_id === categoryId);
   };
 
+  const selectText = (content) => {
+    return content.find((text) => text.id === textId);
+  };
+
   const getType = () => {
     switch (type) {
       case 'songs':
@@ -139,6 +143,21 @@ const ContentProvider = ({ children }) => {
             return selectTitles(content.prayers);
           case 'liturgy':
             return selectTitles(content.liturgy);
+          default:
+            return null;
+        }
+      case '/text':
+        switch (type) {
+          case 'songs':
+            return selectText(content.songs);
+          case 'prayers':
+            return selectText(content.prayers);
+          case 'liturgy':
+            return selectText(content.liturgy);
+          case 'announcements':
+            return selectText(content.liturgy);
+          case 'intentions':
+            return selectText(content.liturgy);
           default:
             return null;
         }
