@@ -15,7 +15,7 @@ const Navigation = ({ type, noSearchLink }) => {
         </BackButton>
         <p>{type}</p>
       </Group>
-      {!noSearchLink ? (
+      {!noSearchLink && type !== 'Liturgia' ? (
         <StyledLink to="/search">
           <SearchIcon />
         </StyledLink>
