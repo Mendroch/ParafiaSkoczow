@@ -115,7 +115,11 @@ const ContentProvider = ({ children }) => {
       default:
         categories = null;
     }
-    return categories.find((category) => category.id === categoryId).name;
+    if (window.location.pathname === '/titles') {
+      return categories.find((category) => category.id === categoryId).name;
+    } else {
+      return categories.find((category) => category.id === getContent().category_id).name;
+    }
   };
 
   const getContent = () => {
