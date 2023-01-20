@@ -115,7 +115,7 @@ const ContentProvider = ({ children }) => {
       default:
         categories = null;
     }
-    if (window.location.pathname === '/titles') {
+    if (window.location.pathname === '/titles' || type === 'liturgy') {
       return categories.find((category) => category.id === categoryId).name;
     } else {
       return categories.find((category) => category.id === getContent().category_id).name;
@@ -153,6 +153,10 @@ const ContentProvider = ({ children }) => {
           case 'prayers':
             return selectText(content.prayers);
           case 'liturgy':
+            let category = content.liturgyCategories.find(
+              (category) => category.id === categoryId
+            );
+            if (category.content !== '<p>---</p>') return category;
             return selectText(content.liturgy);
           case 'announcements':
             return content.announcements;

@@ -30,9 +30,17 @@ const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
 
   return (
     <ContentWrapper isDefectiveView={isDefectiveView}>
-      {searchedContent.map((elem) => (
-        <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
-      ))}
+      {content[0].content && window.location.pathname === '/categories'
+        ? searchedContent.map((elem) =>
+            elem.content !== '<p>---</p>' ? (
+              <ListItem elem={elem} address={'/text'} setId={setId} key={elem.id} />
+            ) : (
+              <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
+            )
+          )
+        : searchedContent.map((elem) => (
+            <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
+          ))}
     </ContentWrapper>
   );
 };

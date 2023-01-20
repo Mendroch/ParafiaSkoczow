@@ -51,6 +51,10 @@ export const LinksContainer = styled.div`
       margin-bottom: 15px;
     }
   }
+
+  a:hover {
+    color: ${({ theme }) => theme.colors.white};
+  }
 `;
 
 export const Loading = styled.div`

@@ -16,6 +16,7 @@ const checkLocation = (type) => {
 const Text = () => {
   const { getCategory, getType, getContent } = useContext(ContentContext);
   const [content] = useState(getContent());
+  // const [category] = useState(getCategory());
   const [isDefectiveView] = useState(checkLocation(getType()));
 
   return (
@@ -23,7 +24,9 @@ const Text = () => {
       <Navigation type={getType()} noSearchLink={true} />
       {!isDefectiveView ? <Category>{getCategory()}</Category> : null}
       <Wrapper isDefectiveView={isDefectiveView}>
-        {!isDefectiveView ? <TextTitle>{content.name}</TextTitle> : null}
+        {isDefectiveView ? null : content.name !== getCategory() ? (
+          <TextTitle>{content.name}</TextTitle>
+        ) : null}
         <Content dangerouslySetInnerHTML={createContent(content.content)} />
       </Wrapper>
     </ViewWrapper>
