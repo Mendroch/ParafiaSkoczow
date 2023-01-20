@@ -26,7 +26,8 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  a:focus {
+  a:hover {
+    color: initial;
     text-decoration: none;
   }
 `;
