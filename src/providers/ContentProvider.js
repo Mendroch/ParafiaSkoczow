@@ -51,10 +51,6 @@ const ContentProvider = ({ children }) => {
   const [textId, setTextId] = useState('');
   // const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   console.log(content);
-  // }, [content]);
-
   useEffect(() => {
     for (const query in queries) {
       axios
@@ -155,9 +151,18 @@ const ContentProvider = ({ children }) => {
           case 'liturgy':
             return selectText(content.liturgy);
           case 'announcements':
-            return selectText(content.liturgy);
+            return content.announcements;
           case 'intentions':
-            return selectText(content.liturgy);
+            return content.intentions;
+          default:
+            return null;
+        }
+      case '/search':
+        switch (type) {
+          case 'songs':
+            return content.songs;
+          case 'prayers':
+            return content.prayers;
           default:
             return null;
         }

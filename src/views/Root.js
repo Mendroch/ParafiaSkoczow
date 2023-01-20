@@ -7,6 +7,7 @@ import Home from 'views/Home/Home';
 import Categories from 'views/Categories/Categories';
 import Titles from 'views/Titles/Titles';
 import Text from 'views/Text/Text';
+import Search from 'views/Search/Search';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import ContentProvider from 'providers/ContentProvider';
 
@@ -22,6 +23,7 @@ const Root = () => {
               <Route path="/categories" element={<Categories />} />
               <Route path="/titles" element={<Titles />} />
               <Route path="/text" element={<Text />} />
+              <Route path="/search" element={<Search />} />
             </Routes>
           </ContentProvider>
         </MainTemplate>

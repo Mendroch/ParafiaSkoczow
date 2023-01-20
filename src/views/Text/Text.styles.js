@@ -3,6 +3,7 @@ import { ContentWrapper } from 'components/atoms/ContentWrapper/ContentWrapper';
 
 export const Wrapper = styled(ContentWrapper)`
   padding: 17px;
+  border-radius: ${({ isDefectiveView }) => (isDefectiveView ? '8px' : 'null')};
 `;
 
 export const TextTitle = styled.p`
