@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
+import { getFromLS, setToLS } from 'utils/storage';
 
 export const ContentContext = React.createContext({
   content: {},
@@ -23,12 +24,6 @@ const queries = {
   intentions: 'https://www.parafiaskoczow.ox.pl/api/pages/75',
 };
 
-const getLocalStorageContent = () => {
-  return localStorage.getItem('content')
-    ? JSON.parse(localStorage.getItem('content'))
-    : {};
-};
-
 const reducer = (state, action) => {
   return {
     ...state,
@@ -45,7 +40,7 @@ const sortData = (data) => {
 };
 
 const ContentProvider = ({ children }) => {
-  const [content, dispatch] = useReducer(reducer, getLocalStorageContent());
+  const [content, dispatch] = useReducer(reducer, getFromLS('content'));
   const [type, setType] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
@@ -68,7 +63,7 @@ const ContentProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('content', JSON.stringify(content));
+    setToLS('content', content);
   }, [content]);
 
   const whetherOpenLoading = () => {

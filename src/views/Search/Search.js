@@ -14,7 +14,11 @@ const Search = () => {
     <ViewWrapper>
       <Navigation type={getType()} noSearchLink={true} />
       <InputWrapper>
-        <Input placeholder="Szukaj" onChange={(e) => setValue(e.target.value)} />
+        <Input
+          placeholder="Szukaj"
+          onChange={(e) => setValue(e.target.value)}
+          autoFocus
+        />
         <Button>
           <SearchIcon />
         </Button>

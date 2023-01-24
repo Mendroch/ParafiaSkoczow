@@ -22,7 +22,7 @@ export const Content = styled.p`
   p,
   div,
   span {
-    font-size: ${({ theme }) => theme.fontSize.t};
+    font-size: ${({ theme }) => theme.fontSize.text};
   }
 
   line-height: 1.3;
