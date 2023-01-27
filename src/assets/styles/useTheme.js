@@ -28,11 +28,8 @@ export const useTheme = () => {
     dispatch({
       value: size,
     });
-  };
-
-  const saveFontSize = (size) => {
     setToLS('textSize', size);
   };
 
-  return { theme, setFontSize, saveFontSize };
+  return { theme, setFontSize };
 };

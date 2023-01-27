@@ -16,8 +16,3 @@ export const theme = {
     text: '15px',
   },
 };
-
-// Font size change
-// 15, 16, 17  =>  16
-// 18, 19, 20  =>  20
-// 24  =>  24

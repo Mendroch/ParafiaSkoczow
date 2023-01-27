@@ -1,8 +1,9 @@
-import { useTheme } from 'assets/styles/useTheme';
+import { useContext } from 'react';
 import { getFromLS } from 'utils/storage';
+import { ContentContext } from 'providers/ContentProvider';
 
 export const useTouch = () => {
-  const { setFontSize, saveFontSize } = useTheme();
+  const { updateFontSize } = useContext(ContentContext);
   let fontSizeStartGesture;
   let fontSizeInTouchEvent;
   let initialDistance;
@@ -48,14 +49,15 @@ export const useTouch = () => {
       let fontSize = fontsSize[fontsSize.indexOf(fontSizeStartGesture) + newfontSize];
       if (fontSize !== undefined && fontSize !== fontSizeInTouchEvent) {
         fontSizeInTouchEvent = fontSize;
-        setFontSize(fontSize);
       }
     }
   };
 
   const touchEnd = (e) => {
     if (e.touches.length === 1) {
-      if (fontSizeInTouchEvent) saveFontSize(fontSizeInTouchEvent);
+      if (fontSizeInTouchEvent) {
+        updateFontSize(fontSizeInTouchEvent);
+      }
     }
   };
 

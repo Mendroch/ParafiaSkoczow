@@ -13,6 +13,8 @@ export const ContentContext = React.createContext({
   getType: () => {},
   getIsBackHistory: () => {},
   setIsBackHistory: () => {},
+  fontSize: '',
+  updateFontSize: () => {},
 });
 
 const queries = {
@@ -46,8 +48,14 @@ const ContentProvider = ({ children }) => {
   const [type, setType] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
+  const [fontSize, setFontSize] = useState(getFromLS('textSize'));
   const [isBackHistory, setIsBackHistory] = useState(true);
   // const [error, setError] = useState('');
+
+  const updateFontSize = (size) => {
+    setFontSize(size);
+    setToLS('textSize', size);
+  };
 
   const getIsBackHistory = () => {
     if (!isBackHistory) {
@@ -197,6 +205,8 @@ const ContentProvider = ({ children }) => {
         getType,
         getIsBackHistory,
         setIsBackHistory,
+        fontSize,
+        updateFontSize,
       }}
     >
       {children}

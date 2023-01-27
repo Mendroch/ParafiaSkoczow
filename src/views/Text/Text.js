@@ -5,7 +5,6 @@ import { Category } from 'components/atoms/Category/Category';
 import { ContentContext } from 'providers/ContentProvider';
 import { Wrapper, TextTitle, Content } from './Text.styles';
 import { useTouch } from 'hooks/useTouch';
-import { useDisablePinchZoom } from 'hooks/useDisablePinchZoom';
 
 const createContent = (content) => {
   return { __html: content };
@@ -16,7 +15,7 @@ const checkLocation = (type) => {
 };
 
 const Text = () => {
-  const { getCategory, getType, getContent, setIsBackHistory } =
+  const { getCategory, getType, getContent, setIsBackHistory, fontSize } =
     useContext(ContentContext);
   const [content] = useState(getContent());
   const [isDefectiveView] = useState(checkLocation(getType()));
@@ -27,8 +26,6 @@ const Text = () => {
     // eslint-disable-next-line
   }, []);
 
-  useDisablePinchZoom();
-
   return (
     <ViewWrapper
       initial={{ x: '100%', width: '100%' }}
@@ -38,19 +35,20 @@ const Text = () => {
         x: '100%',
         transition: { duration: 0.3, animation: 'linear' },
       }}
+      onTouchStart={(e) => touchStart(e)}
+      onTouchMove={(e) => touchMove(e)}
+      onTouchEnd={(e) => touchEnd(e)}
     >
       <Navigation type={getType()} noSearchLink={true} />
       {!isDefectiveView ? <Category>{getCategory()}</Category> : null}
-      <Wrapper
-        isDefectiveView={isDefectiveView}
-        onTouchStart={(e) => touchStart(e)}
-        onTouchMove={(e) => touchMove(e)}
-        onTouchEnd={(e) => touchEnd(e)}
-      >
+      <Wrapper isDefectiveView={isDefectiveView}>
         {isDefectiveView ? null : content.name !== getCategory() ? (
           <TextTitle>{content.name}</TextTitle>
         ) : null}
-        <Content dangerouslySetInnerHTML={createContent(content.content)} />
+        <Content
+          dangerouslySetInnerHTML={createContent(content.content)}
+          fontSize={fontSize}
+        />
       </Wrapper>
     </ViewWrapper>
   );
