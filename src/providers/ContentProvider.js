@@ -11,6 +11,8 @@ export const ContentContext = React.createContext({
   setTextId: () => {},
   getCategory: () => {},
   getType: () => {},
+  getIsBackHistory: () => {},
+  setIsBackHistory: () => {},
 });
 
 const queries = {
@@ -44,7 +46,15 @@ const ContentProvider = ({ children }) => {
   const [type, setType] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
+  const [isBackHistory, setIsBackHistory] = useState(true);
   // const [error, setError] = useState('');
+
+  const getIsBackHistory = () => {
+    if (!isBackHistory) {
+      setIsBackHistory(true);
+      return false;
+    } else return true;
+  };
 
   useEffect(() => {
     for (const query in queries) {
@@ -185,6 +195,8 @@ const ContentProvider = ({ children }) => {
         setTextId,
         getCategory,
         getType,
+        getIsBackHistory,
+        setIsBackHistory,
       }}
     >
       {children}

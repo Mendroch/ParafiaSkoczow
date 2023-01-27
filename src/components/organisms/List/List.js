@@ -4,7 +4,7 @@ import ListItem from 'components/molecules/ListItem/ListItem';
 import { ContentContext } from 'providers/ContentProvider';
 
 const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
-  const { getContent } = useContext(ContentContext);
+  const { getContent, setIsBackHistory } = useContext(ContentContext);
   const [content] = useState(getContent());
   const [searchedContent, setSearchedContent] = useState(content);
 
@@ -29,7 +29,10 @@ const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
   }, [inputValue]);
 
   return (
-    <ContentWrapper isDefectiveView={isDefectiveView}>
+    <ContentWrapper
+      isDefectiveView={isDefectiveView}
+      onClick={() => setIsBackHistory(false)}
+    >
       {content[0].content && window.location.pathname === '/categories'
         ? searchedContent.map((elem) =>
             elem.content !== '<p>---</p>' ? (

@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { ReactComponent as AppIcon } from 'assets/icons/icon.svg';
+import { motion } from 'framer-motion';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  height: 100%;
 `;
 
 export const StyledImage = styled(AppIcon)`

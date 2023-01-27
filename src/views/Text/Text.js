@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ViewWrapper } from 'components/atoms/ViewWrapper/ViewWrapper';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import { Category } from 'components/atoms/Category/Category';
@@ -16,15 +16,29 @@ const checkLocation = (type) => {
 };
 
 const Text = () => {
-  const { getCategory, getType, getContent } = useContext(ContentContext);
+  const { getCategory, getType, getContent, setIsBackHistory } =
+    useContext(ContentContext);
   const [content] = useState(getContent());
   const [isDefectiveView] = useState(checkLocation(getType()));
   const { touchStart, touchMove, touchEnd } = useTouch();
 
+  useEffect(() => {
+    setIsBackHistory(true);
+    // eslint-disable-next-line
+  }, []);
+
   useDisablePinchZoom();
 
   return (
-    <ViewWrapper>
+    <ViewWrapper
+      initial={{ x: '100%', width: '100%' }}
+      animate={{ x: 0, width: '100%' }}
+      transition={{ animation: 'linear' }}
+      exit={{
+        x: '100%',
+        transition: { duration: 0.3, animation: 'linear' },
+      }}
+    >
       <Navigation type={getType()} noSearchLink={true} />
       {!isDefectiveView ? <Category>{getCategory()}</Category> : null}
       <Wrapper

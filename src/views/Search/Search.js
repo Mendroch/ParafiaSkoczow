@@ -11,7 +11,15 @@ const Search = () => {
   const [value, setValue] = useState('');
 
   return (
-    <ViewWrapper>
+    <ViewWrapper
+      initial={{ x: '100%', width: '100%' }}
+      animate={{ x: 0, width: '100%' }}
+      transition={{ duration: 2.5, animation: 'linear' }}
+      exit={{
+        x: '-100%',
+        transition: { duration: 0.3, animation: 'linear' },
+      }}
+    >
       <Navigation type={getType()} noSearchLink={true} />
       <InputWrapper>
         <Input

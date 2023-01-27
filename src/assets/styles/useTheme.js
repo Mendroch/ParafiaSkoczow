@@ -7,7 +7,8 @@ const reducer = (state, action) => {
     ...state,
     fontSize: {
       ...state.fontSize,
-      ['text']: action.value, // eslint warning
+      // eslint-disable-next-line
+      ['text']: action.value,
     },
   };
 };

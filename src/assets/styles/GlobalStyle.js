@@ -13,11 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Fira Sans", sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(
-      180deg,
-      #1B7290 0%,
-      #50A7C0 100%
-    );
+    background: ${({ theme }) => theme.colors.bateau};
     overflow: hidden;
   }
   
