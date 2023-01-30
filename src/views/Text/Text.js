@@ -3,7 +3,7 @@ import { ViewWrapper } from 'components/atoms/ViewWrapper/ViewWrapper';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import { Category } from 'components/atoms/Category/Category';
 import { ContentContext } from 'providers/ContentProvider';
-import { Wrapper, TextTitle, Content } from './Text.styles';
+import { Wrapper, TextTitle } from './Text.styles';
 import { useTouch } from 'hooks/useTouch';
 import { getAnimationProps } from 'helpers/getAnimationProps';
 
@@ -34,14 +34,11 @@ const Text = () => {
     >
       <Navigation type={getType()} noSearchLink={true} />
       {!isDefectiveView ? <Category>{getCategory()}</Category> : null}
-      <Wrapper isDefectiveView={isDefectiveView}>
+      <Wrapper isDefectiveView={isDefectiveView} fontSize={fontSize}>
         {isDefectiveView ? null : content.name !== getCategory() ? (
           <TextTitle>{content.name}</TextTitle>
         ) : null}
-        <Content
-          dangerouslySetInnerHTML={createContent(content.content)}
-          fontSize={fontSize}
-        />
+        <p dangerouslySetInnerHTML={createContent(content.content)} />
       </Wrapper>
     </ViewWrapper>
   );
