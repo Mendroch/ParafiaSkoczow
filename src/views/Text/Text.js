@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { ViewWrapper } from 'components/atoms/ViewWrapper/ViewWrapper';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import { Category } from 'components/atoms/Category/Category';
 import { ContentContext } from 'providers/ContentProvider';
 import { Wrapper, TextTitle, Content } from './Text.styles';
 import { useTouch } from 'hooks/useTouch';
+import { getAnimationProps } from 'helpers/getAnimationProps';
 
 const createContent = (content) => {
   return { __html: content };
@@ -15,26 +16,18 @@ const checkLocation = (type) => {
 };
 
 const Text = () => {
-  const { getCategory, getType, getContent, setIsBackHistory, fontSize } =
-    useContext(ContentContext);
+  const { getCategory, getType, getContent, fontSize } = useContext(ContentContext);
   const [content] = useState(getContent());
   const [isDefectiveView] = useState(checkLocation(getType()));
   const { touchStart, touchMove, touchEnd } = useTouch();
-
-  useEffect(() => {
-    setIsBackHistory(true);
-    // eslint-disable-next-line
-  }, []);
+  const { initial, animate, trasition, exit } = getAnimationProps();
 
   return (
     <ViewWrapper
-      initial={{ x: '100%', width: '100%' }}
-      animate={{ x: 0, width: '100%' }}
-      transition={{ animation: 'linear' }}
-      exit={{
-        x: '100%',
-        transition: { duration: 0.3, animation: 'linear' },
-      }}
+      initial={initial}
+      animate={animate}
+      transition={trasition}
+      exit={exit}
       onTouchStart={(e) => touchStart(e)}
       onTouchMove={(e) => touchMove(e)}
       onTouchEnd={(e) => touchEnd(e)}

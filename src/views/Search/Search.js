@@ -5,21 +5,15 @@ import List from 'components/organisms/List/List';
 import { Button, Input, InputWrapper } from './Search.styles';
 import { ContentContext } from 'providers/ContentProvider';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
+import { getAnimationProps } from 'helpers/getAnimationProps';
 
 const Search = () => {
   const { setTextId, getType } = useContext(ContentContext);
   const [value, setValue] = useState('');
+  const { initial, animate, trasition, exit } = getAnimationProps();
 
   return (
-    <ViewWrapper
-      initial={{ x: '100%', width: '100%' }}
-      animate={{ x: 0, width: '100%' }}
-      transition={{ duration: 2.5, animation: 'linear' }}
-      exit={{
-        x: '-100%',
-        transition: { duration: 0.3, animation: 'linear' },
-      }}
-    >
+    <ViewWrapper initial={initial} animate={animate} transition={trasition} exit={exit}>
       <Navigation type={getType()} noSearchLink={true} />
       <InputWrapper>
         <Input
