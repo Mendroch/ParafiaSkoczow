@@ -5,8 +5,17 @@ import '@atlaskit/css-reset';
 import 'assets/styles/fonts.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>
-);
+
+const startApp = () => {
+  root.render(
+    <React.StrictMode>
+      <Root />
+    </React.StrictMode>
+  );
+};
+
+if (window.cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}
