@@ -4,6 +4,7 @@ import { ContentWrapper } from 'components/atoms/ContentWrapper/ContentWrapper';
 import ListItem from 'components/molecules/ListItem/ListItem';
 import { ContentContext } from 'providers/ContentProvider';
 import searchContent from 'helpers/searchContent';
+import { Info } from './List.styles';
 
 const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
   const { getContent } = useContext(ContentContext);
@@ -17,21 +18,23 @@ const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
     }
   }, [inputValue, content]);
 
-  // console.log(content[1].content);
-
   return (
     <ContentWrapper isDefectiveView={isDefectiveView}>
-      {content[0].content && location === '/categories'
-        ? searchedContent.map((elem) =>
-            elem.content !== '<p>---</p>' ? (
-              <ListItem elem={elem} address={'/text'} setId={setId} key={elem.id} />
-            ) : (
-              <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
-            )
-          )
-        : searchedContent.map((elem) => (
+      {content[0].content && location === '/categories' ? (
+        searchedContent.map((elem) =>
+          elem.content !== '<p>---</p>' ? (
+            <ListItem elem={elem} address={'/text'} setId={setId} key={elem.id} />
+          ) : (
             <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
-          ))}
+          )
+        )
+      ) : location === '/search' && searchedContent.length === 0 ? (
+        <Info>Brak wyników</Info>
+      ) : (
+        searchedContent.map((elem) => (
+          <ListItem elem={elem} address={nextPage} setId={setId} key={elem.id} />
+        ))
+      )}
     </ContentWrapper>
   );
 };
