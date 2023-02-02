@@ -94,7 +94,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^11.0.0",
-    "cordova-ios": "^6.2.0"
+    "cordova-ios": "^6.2.0",
+    "cordova-plugin-statusbar": "^3.0.0"
   },
   "cordova": {
     "platforms": [
