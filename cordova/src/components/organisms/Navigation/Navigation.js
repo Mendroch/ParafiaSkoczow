@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wrapper, Group, BackButton, StyledLink } from './Navigation.styles';
 import { ReactComponent as BackIcon } from 'assets/icons/arrow.svg';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
-import { ContentContext } from 'providers/ContentProvider';
 
 const Navigation = ({ type, noSearchLink }) => {
-  const { setIsBackHistory } = useContext(ContentContext);
   const navigate = useNavigate();
 
   return (
@@ -18,7 +16,7 @@ const Navigation = ({ type, noSearchLink }) => {
         <p>{type}</p>
       </Group>
       {!noSearchLink && type !== 'Liturgia' ? (
-        <StyledLink to="/search" onClick={() => setIsBackHistory(false)}>
+        <StyledLink to="/search">
           <SearchIcon />
         </StyledLink>
       ) : null}

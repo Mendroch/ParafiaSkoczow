@@ -6,7 +6,7 @@ import { ContentContext } from 'providers/ContentProvider';
 import searchContent from 'helpers/searchContent';
 
 const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
-  const { getContent, setIsBackHistory } = useContext(ContentContext);
+  const { getContent } = useContext(ContentContext);
   const [content] = useState(getContent());
   const [searchedContent, setSearchedContent] = useState(content);
   let location = useLocation().pathname;
@@ -15,14 +15,13 @@ const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
     if (inputValue) {
       setSearchedContent(searchContent(inputValue, content));
     }
-  }, [inputValue]);
+  }, [inputValue, content]);
+
+  // console.log(content[1].content);
 
   return (
-    <ContentWrapper
-      isDefectiveView={isDefectiveView}
-      onClick={() => setIsBackHistory(false)}
-    >
-      {content[0].content && location.pathname === '/categories'
+    <ContentWrapper isDefectiveView={isDefectiveView}>
+      {content[0].content && location === '/categories'
         ? searchedContent.map((elem) =>
             elem.content !== '<p>---</p>' ? (
               <ListItem elem={elem} address={'/text'} setId={setId} key={elem.id} />

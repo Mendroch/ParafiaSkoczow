@@ -12,8 +12,6 @@ export const ContentContext = React.createContext({
   setTextId: () => {},
   getCategory: () => {},
   getType: () => {},
-  getIsBackHistory: () => {},
-  setIsBackHistory: () => {},
   fontSize: '',
   updateFontSize: () => {},
 });
@@ -50,20 +48,12 @@ const ContentProvider = ({ children }) => {
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
   const [fontSize, setFontSize] = useState(getFromLS('textSize'));
-  const [isBackHistory, setIsBackHistory] = useState(true);
   let location = useLocation().pathname;
   // const [error, setError] = useState('');
 
   const updateFontSize = (size) => {
     setFontSize(size);
     setToLS('textSize', size);
-  };
-
-  const getIsBackHistory = () => {
-    if (!isBackHistory) {
-      setIsBackHistory(true);
-      return false;
-    } else return true;
   };
 
   useEffect(() => {
@@ -207,8 +197,6 @@ const ContentProvider = ({ children }) => {
         setTextId,
         getCategory,
         getType,
-        getIsBackHistory,
-        setIsBackHistory,
         fontSize,
         updateFontSize,
       }}

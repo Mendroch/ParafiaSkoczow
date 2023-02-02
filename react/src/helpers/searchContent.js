@@ -1,4 +1,4 @@
-export default searchContent = (value, content) => {
+const searchContent = (value, content) => {
   return content
     .filter(
       (text) =>
@@ -12,3 +12,5 @@ export default searchContent = (value, content) => {
       return itA && !itB ? -1 : !itB && itA ? 1 : 0;
     });
 };
+
+export default searchContent;
