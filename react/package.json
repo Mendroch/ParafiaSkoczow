@@ -1,6 +1,8 @@
 {
-  "name": "modlitewnik_v4",
-  "version": "0.1.0",
+  "name": "parafiaskoczow",
+  "displayName": "Parafia Skoczów",
+  "version": "1.0.5",
+  "description": "Aplikacja dla parafii Rzymskokatolickiej pw.św.ap. Piotra i Pawła w Skoczowie",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -163,7 +165,8 @@
   },
   "cordova": {
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }

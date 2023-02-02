@@ -1,8 +1,8 @@
 {
-  "name": "io.cordova.hellocordova",
-  "displayName": "HelloCordova",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "name": "parafiaskoczow",
+  "displayName": "Parafia Skoczów",
+  "version": "1.0.5",
+  "description": "Aplikacja dla parafii Rzymskokatolickiej pw.św.ap. Piotra i Pawła w Skoczowie",
   "homepage": "./",
   "main": "index.js",
   "dependencies": {
@@ -90,7 +90,7 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
+  "author": "Krzysztof Mendroch, OptimalIT",
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^11.0.0",
@@ -101,6 +101,7 @@
     "platforms": [
       "ios",
       "android"
-    ]
+    ],
+    "plugins": {}
   }
 }
