@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from 'views/Home/Home';
 import Categories from 'views/Categories/Categories';
 import Titles from 'views/Titles/Titles';
@@ -18,6 +18,7 @@ const AnimatedRoutes = () => {
         <Route path="/titles" element={<Titles />} />
         <Route path="/text" element={<Text />} />
         <Route path="/search" element={<Search />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </AnimatePresence>
   );
