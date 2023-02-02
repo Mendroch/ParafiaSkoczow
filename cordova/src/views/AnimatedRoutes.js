@@ -1,11 +1,11 @@
-import React from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import Home from "views/Home/Home";
-import Categories from "views/Categories/Categories";
-import Titles from "views/Titles/Titles";
-import Text from "views/Text/Text";
-import Search from "views/Search/Search";
-import { AnimatePresence } from "framer-motion";
+import React from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import Home from 'views/Home/Home';
+import Categories from 'views/Categories/Categories';
+import Titles from 'views/Titles/Titles';
+import Text from 'views/Text/Text';
+import Search from 'views/Search/Search';
+import { AnimatePresence } from 'framer-motion';
 
 const AnimatedRoutes = () => {
   const location = useLocation();

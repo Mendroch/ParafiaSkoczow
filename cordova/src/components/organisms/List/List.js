@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ContentWrapper } from 'components/atoms/ContentWrapper/ContentWrapper';
 import ListItem from 'components/molecules/ListItem/ListItem';
 import { ContentContext } from 'providers/ContentProvider';
+import searchContent from 'helpers/searchContent';
 
 const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
   const { getContent, setIsBackHistory } = useContext(ContentContext);
@@ -12,22 +13,8 @@ const List = ({ nextPage, setId, isDefectiveView, inputValue }) => {
 
   useEffect(() => {
     if (inputValue) {
-      setSearchedContent(
-        content
-          .filter(
-            (text) =>
-              text.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-              text.content.toLowerCase().includes(inputValue.toLowerCase())
-          )
-          .sort((a, b) => {
-            let itA = a.name.toLowerCase().includes(inputValue.toLowerCase());
-            let itB = b.name.toLowerCase().includes(inputValue.toLowerCase());
-
-            return itA && !itB ? -1 : !itB && itA ? 1 : 0;
-          })
-      );
+      setSearchedContent(searchContent(inputValue, content));
     }
-    // eslint-disable-next-line
   }, [inputValue]);
 
   return (
