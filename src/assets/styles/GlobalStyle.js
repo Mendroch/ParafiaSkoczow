@@ -1,8 +1,8 @@
-import { createGlobalStyle } from "styled-components";
-import FiraSansRegular from "assets/fonts/FiraSans-Regular.ttf";
-import FiraSansMedium from "assets/fonts/FiraSans-Medium.ttf";
-import FiraSansSemiBold from "assets/fonts/FiraSans-Bold.ttf";
-import FiraSansBold from "assets/fonts/FiraSans-Bold.ttf";
+import { createGlobalStyle } from 'styled-components';
+import FiraSansRegular from 'assets/fonts/FiraSans-Regular.ttf';
+import FiraSansMedium from 'assets/fonts/FiraSans-Medium.ttf';
+import FiraSansSemiBold from 'assets/fonts/FiraSans-Bold.ttf';
+import FiraSansBold from 'assets/fonts/FiraSans-Bold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
   html {
