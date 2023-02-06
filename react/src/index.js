@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Root from 'views/Root';
-import '@atlaskit/css-reset';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Root from "views/Root";
+import "@atlaskit/css-reset";
+import * as serviceWorker from "./serviceWorker";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const startApp = () => {
   root.render(
@@ -15,7 +15,7 @@ const startApp = () => {
 };
 
 if (window.cordova) {
-  document.addEventListener('deviceready', startApp, false);
+  document.addEventListener("deviceready", startApp, false);
 } else {
   startApp();
 }
