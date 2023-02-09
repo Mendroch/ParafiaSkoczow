@@ -34,10 +34,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    height: 100%;
+    background-image: linear-gradient(
+      180deg,
+      ${({ theme }) => theme.colors.bateau} 0%,
+      ${({ theme }) => theme.colors.potteryBlue} 100%
+    );
     font-family: "FiraSansRegular";
-    margin: 0;
-    padding: 0;
-    background: ${({ theme }) => theme.colors.bateau};
     overflow: hidden;
   }
   

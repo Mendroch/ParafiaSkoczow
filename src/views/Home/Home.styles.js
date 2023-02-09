@@ -36,7 +36,7 @@ export const LinksContainer = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 222px);
+  max-height: calc(100% - 222px);
   overflow: scroll;
 
   a {
