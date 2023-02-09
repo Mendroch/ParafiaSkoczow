@@ -1,7 +1,7 @@
 {
   "name": "parafiaskoczow",
   "displayName": "Parafia Skoczów",
-  "version": "1.0.5",
+  "version": "1.1.1",
   "description": "Aplikacja dla parafii Rzymskokatolickiej pw.św.ap. Piotra i Pawła w Skoczowie",
   "homepage": "./",
   "main": "index.js",
