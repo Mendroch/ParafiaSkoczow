@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 `;

@@ -5,12 +5,12 @@ import FiraSansSemiBold from 'assets/fonts/FiraSans-Bold.ttf';
 import FiraSansBold from 'assets/fonts/FiraSans-Bold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
-  html {
+  html, body {
     box-sizing: border-box;
   }
   
   *, *::after, *::before {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
 
   @font-face {
@@ -32,15 +32,22 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "FiraSansBold";
     src: url(${FiraSansBold}) format('truetype');
   }
-  
+
+  html {
+    background-color: ${({ theme }) => theme.colors.bateau};
+  }
+
   body {
-    height: 100%;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    height: 100vh;
+    font-family: "FiraSansRegular";
+    background-color: ${({ theme }) => theme.colors.bateau};
     background-image: linear-gradient(
-      180deg,
+      to bottom,
       ${({ theme }) => theme.colors.bateau} 0%,
       ${({ theme }) => theme.colors.potteryBlue} 100%
     );
-    font-family: "FiraSansRegular";
     overflow: hidden;
   }
   
