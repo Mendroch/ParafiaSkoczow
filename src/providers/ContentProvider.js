@@ -122,7 +122,7 @@ const ContentProvider = ({ children }) => {
     }
     if (location === '/titles' || type === 'liturgy') {
       return categories.find((category) => category.id === categoryId).name;
-    } else if (location === '/categories' || location === '/search') {
+    } else if (location === '/categories' || location === '/search' || location === '/') {
       return false;
     } else {
       return categories.find((category) => category.id === getContent().category_id).name;
