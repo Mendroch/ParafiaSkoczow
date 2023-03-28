@@ -12,6 +12,7 @@ import Modal from 'components/organisms/Modal/Modal';
 import { ReactComponent as LoadIcon } from 'assets/icons/load.svg';
 import { ContentContext } from 'providers/ContentProvider';
 import { getAnimationProps } from 'helpers/getAnimationProps';
+import PulsingButton from 'components/atoms/PulsingButton/PulsingButton';
 
 const Home = () => {
   const { content, whetherOpenLoading, setType } = useContext(ContentContext);
@@ -25,6 +26,7 @@ const Home = () => {
 
   return (
     <Wrapper initial={initial} animate={animate} transition={trasition} exit={exit}>
+      <PulsingButton />
       <HeaderContainer>
         <StyledImage />
         <h1>PARAFIA SKOCZÓW</h1>

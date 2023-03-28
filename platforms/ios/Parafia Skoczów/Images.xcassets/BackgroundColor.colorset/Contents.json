@@ -1,15 +1,20 @@
 {
-  "colors": [
+  "colors" : [
     {
-      "idiom": "universal",
-      "color": {
-        "platform": "ios",
-        "reference": "systemBackgroundColor"
-      }
+      "color" : {
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0x90",
+          "green" : "0x72",
+          "red" : "0x1B"
+        }
+      },
+      "idiom" : "universal"
     }
   ],
-  "info": {
-    "author": "Xcode",
-    "version": 1
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
   }
 }
