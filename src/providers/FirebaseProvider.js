@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-export const FirebaseContext = React.createContext({});
+export const FirebaseContext = React.createContext({
+  playlists: [],
+});
 
 const firebaseConfig = {
   apiKey: '',
@@ -34,7 +36,15 @@ const FirebaseProvider = ({ children }) => {
     }
   });
 
-  return <FirebaseContext.Provider value={{}}>{children}</FirebaseContext.Provider>;
+  return (
+    <FirebaseContext.Provider
+      value={{
+        playlists,
+      }}
+    >
+      {children}
+    </FirebaseContext.Provider>
+  );
 };
 
 export default FirebaseProvider;

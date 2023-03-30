@@ -48,8 +48,8 @@ const ContentProvider = ({ children }) => {
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
   const [fontSize, setFontSize] = useState(getFromLS('textSize'));
+  const [error, setError] = useState('');
   let location = useLocation().pathname;
-  // const [error, setError] = useState('');
 
   const updateFontSize = (size) => {
     setFontSize(size);
@@ -67,7 +67,7 @@ const ContentProvider = ({ children }) => {
           });
         })
         .catch(() => {
-          // setError(`Błąd połączenia z internetem`);
+          setError(`Błąd połączenia z internetem`);
         });
     }
   }, []);

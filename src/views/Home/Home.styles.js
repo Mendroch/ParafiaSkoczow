@@ -52,10 +52,6 @@ export const LinksContainer = styled.div`
     border-radius: 28px;
     text-decoration: none;
 
-    &:first-of-type {
-      border: 2px solid ${({ theme }) => theme.colors.red};
-    }
-
     &:not(:last-of-type) {
       margin-bottom: 15px;
     }
@@ -80,5 +76,12 @@ export const Loading = styled.div`
     0% {
       transform: rotate(360deg);
     }
+  }
+`;
+
+export const PlaylistLink = styled.div`
+  a {
+    margin-bottom: 15px;
+    border: 2px solid ${({ theme }) => theme.colors.red};
   }
 `;

@@ -6,15 +6,18 @@ import {
   HeaderContainer,
   LinksContainer,
   Loading,
+  PlaylistLink,
 } from './Home.styles';
 import useModal from 'components/organisms/Modal/useModal';
 import Modal from 'components/organisms/Modal/Modal';
 import { ReactComponent as LoadIcon } from 'assets/icons/load.svg';
 import { ContentContext } from 'providers/ContentProvider';
 import { getAnimationProps } from 'helpers/getAnimationProps';
+import { PlaylistContext } from 'providers/PlaylistProvider';
 
 const Home = () => {
   const { content, whetherOpenLoading, setType } = useContext(ContentContext);
+  const { playlist } = useContext(PlaylistContext);
   const { isOpen, handleOpenModal, handleCloseModal } = useModal();
   const { initial, animate, trasition, exit } = getAnimationProps();
 
@@ -30,9 +33,13 @@ const Home = () => {
         <h1>PARAFIA SKOCZÓW</h1>
       </HeaderContainer>
       <LinksContainer>
-        <NavLink to="/playlist" onClick={() => setType('playlist')}>
-          TEKSTY TERAZ
-        </NavLink>
+        {playlist.length ? (
+          <PlaylistLink>
+            <NavLink to="/playlist" onClick={() => setType('playlist')}>
+              TEKSTY TERAZ
+            </NavLink>
+          </PlaylistLink>
+        ) : null}
         <a
           href="https://www.youtube.com/watch?v=xSdIBGA0-7I&ab_channel=ParafiaSkocz%C3%B3w-transmisjaonline"
           target="_blank"

@@ -8,6 +8,7 @@ import ContentProvider from 'providers/ContentProvider';
 import AnimatedRoutes from './AnimatedRoutes';
 import { useDisablePinchZoom } from 'hooks/useDisablePinchZoom';
 import FirebaseProvider from 'providers/FirebaseProvider';
+import PlaylistProvider from 'providers/PlaylistProvider';
 
 const Root = () => {
   useDisablePinchZoom();
@@ -17,11 +18,13 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MainTemplate>
-          <FirebaseProvider>
-            <ContentProvider>
-              <AnimatedRoutes />
-            </ContentProvider>
-          </FirebaseProvider>
+          <ContentProvider>
+            <FirebaseProvider>
+              <PlaylistProvider>
+                <AnimatedRoutes />
+              </PlaylistProvider>
+            </FirebaseProvider>
+          </ContentProvider>
         </MainTemplate>
       </ThemeProvider>
     </Router>

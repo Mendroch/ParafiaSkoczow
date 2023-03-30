@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wrapper, Group, BackButton, StyledLink } from './Navigation.styles';
-import { ReactComponent as BackIcon } from 'assets/icons/arrow.svg';
+import { ReactComponent as BackIcon } from 'assets/icons/arrowLeft.svg';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 
 const Navigation = ({ type, noSearchLink }) => {
