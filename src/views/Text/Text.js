@@ -4,7 +4,7 @@ import Navigation from 'components/organisms/Navigation/Navigation';
 import { Category } from 'components/atoms/Category/Category';
 import { ContentContext } from 'providers/ContentProvider';
 import { Wrapper, TextTitle } from './Text.styles';
-import { useTouch } from 'hooks/useTouch';
+import { usePinching } from 'hooks/usePinching';
 import { getAnimationProps } from 'helpers/getAnimationProps';
 
 const createContent = (content) => {
@@ -19,7 +19,7 @@ const Text = () => {
   const { getCategory, getType, getContent, fontSize } = useContext(ContentContext);
   const [content] = useState(getContent());
   const [isDefectiveView] = useState(checkLocation(getType()));
-  const { touchStart, touchMove, touchEnd } = useTouch();
+  const { pinchingStart, pinchingMove, pinchingEnd } = usePinching();
   const { initial, animate, trasition, exit } = getAnimationProps();
 
   return (
@@ -28,14 +28,14 @@ const Text = () => {
       animate={animate}
       transition={trasition}
       exit={exit}
-      onTouchStart={(e) => touchStart(e)}
-      onTouchMove={(e) => touchMove(e)}
-      onTouchEnd={(e) => touchEnd(e)}
+      onTouchStart={(e) => pinchingStart(e)}
+      onTouchMove={(e) => pinchingMove(e)}
+      onTouchEnd={(e) => pinchingEnd(e)}
     >
       <Navigation type={getType()} noSearchLink={true} />
-      {!isDefectiveView ? <Category>{getCategory()}</Category> : null}
+      {!isDefectiveView ? <Category>{getCategory(content.category_id)}</Category> : null}
       <Wrapper isDefectiveView={isDefectiveView} fontSize={fontSize}>
-        {isDefectiveView ? null : content.name !== getCategory() ? (
+        {isDefectiveView ? null : content.name !== getCategory(content.category_id) ? (
           <TextTitle>{content.name}</TextTitle>
         ) : null}
         <p dangerouslySetInnerHTML={createContent(content.content)} />

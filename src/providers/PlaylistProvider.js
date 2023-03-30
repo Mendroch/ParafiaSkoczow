@@ -1,8 +1,12 @@
-import React, { useReducer, useEffect, useContext } from 'react';
+import React, { useState, useReducer, useEffect, useContext } from 'react';
 import { FirebaseContext } from './FirebaseProvider';
 import { ContentContext } from './ContentProvider';
 
-export const PlaylistContext = React.createContext({ playlist: [] });
+export const PlaylistContext = React.createContext({
+  playlist: [],
+  currentSongId: [],
+  setCurrentSongId: () => {},
+});
 
 Date.prototype.addHours = function (h) {
   this.setTime(this.getTime() + h * 60 * 60 * 1000);
@@ -30,6 +34,7 @@ const PlaylistProvider = ({ children }) => {
   const { playlists } = useContext(FirebaseContext);
   const { content } = useContext(ContentContext);
   const [playlist, dispatch] = useReducer(reducer, []);
+  const [currentSongId, setCurrentSongId] = useState(0);
 
   useEffect(() => {
     if (playlists.length === 0) {
@@ -54,7 +59,9 @@ const PlaylistProvider = ({ children }) => {
   }, [playlists]);
 
   return (
-    <PlaylistContext.Provider value={{ playlist }}>{children}</PlaylistContext.Provider>
+    <PlaylistContext.Provider value={{ playlist, currentSongId, setCurrentSongId }}>
+      {children}
+    </PlaylistContext.Provider>
   );
 };
 

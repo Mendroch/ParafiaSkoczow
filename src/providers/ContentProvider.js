@@ -105,7 +105,7 @@ const ContentProvider = ({ children }) => {
     }
   };
 
-  const getCategory = () => {
+  const getCategory = (id) => {
     let categories;
     switch (type) {
       case 'songs':
@@ -117,6 +117,9 @@ const ContentProvider = ({ children }) => {
       case 'liturgy':
         categories = content.liturgyCategories;
         break;
+      case 'playlist':
+        categories = content.songsCategories;
+        break;
       default:
         categories = null;
     }
@@ -125,7 +128,7 @@ const ContentProvider = ({ children }) => {
     } else if (location === '/categories' || location === '/search' || location === '/') {
       return false;
     } else {
-      return categories.find((category) => category.id === getContent().category_id).name;
+      return id ? categories.find((category) => category.id === id).name : '';
     }
   };
 

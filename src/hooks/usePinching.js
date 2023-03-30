@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import { getFromLS } from 'utils/storage';
 import { ContentContext } from 'providers/ContentProvider';
 
-export const useTouch = () => {
+export const usePinching = () => {
   const { updateFontSize } = useContext(ContentContext);
   let fontSizeStartGesture;
   let fontSizeInTouchEvent;
   let initialDistance;
 
-  const touchStart = (e) => {
+  const pinchingStart = (e) => {
     if (e.touches.length === 2) {
       fontSizeStartGesture = getFromLS('textSize');
       initialDistance = Math.round(
@@ -20,7 +20,7 @@ export const useTouch = () => {
     }
   };
 
-  const touchMove = (e) => {
+  const pinchingMove = (e) => {
     if (e.touches.length === 2) {
       let currentDistance = Math.round(
         Math.sqrt(
@@ -53,7 +53,7 @@ export const useTouch = () => {
     }
   };
 
-  const touchEnd = (e) => {
+  const pinchingEnd = (e) => {
     if (e.touches.length === 1) {
       if (fontSizeInTouchEvent) {
         updateFontSize(fontSizeInTouchEvent);
@@ -62,8 +62,8 @@ export const useTouch = () => {
   };
 
   return {
-    touchStart,
-    touchMove,
-    touchEnd,
+    pinchingStart,
+    pinchingMove,
+    pinchingEnd,
   };
 };

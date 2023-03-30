@@ -48,13 +48,17 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const ButtonPrev = styled.button`
+  opacity: ${({ isDisabled }) => (isDisabled ? '0.5' : '1')};
+
   p {
     margin-left: 5px;
   }
 `;
 
 export const ButtonNext = styled.button`
+  opacity: ${({ isDisabled }) => (isDisabled ? '0.5' : '1')};
   justify-content: flex-end;
+
   p {
     margin-right: 5px;
   }
