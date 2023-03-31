@@ -2,7 +2,15 @@ import { useContext } from 'react';
 import { PlaylistContext } from 'providers/PlaylistProvider';
 
 export const useSwipe = () => {
-  const { currentSongId, playlist, setCurrentSongId } = useContext(PlaylistContext);
+  const { currentSongId, playlist, setCurrentSongId, setAnimation } =
+    useContext(PlaylistContext);
+
+  const setId = (id) => {
+    setAnimation('fadeInOut');
+    setTimeout(() => setCurrentSongId(id), 100);
+    setTimeout(() => setAnimation('none'), 200);
+  };
+
   let initialX,
     initialY,
     touchX,
@@ -37,9 +45,9 @@ export const useSwipe = () => {
   const swipeEnd = (e) => {
     if (isSwiped) {
       if (moveType === 'Right' && currentSongId > 0) {
-        setCurrentSongId(currentSongId - 1);
+        setId(currentSongId - 1);
       } else if (moveType === 'Left' && currentSongId + 1 < playlist.length)
-        setCurrentSongId(currentSongId + 1);
+        setId(currentSongId + 1);
       isSwiped = false;
     }
   };

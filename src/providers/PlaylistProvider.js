@@ -5,7 +5,9 @@ import { ContentContext } from './ContentProvider';
 export const PlaylistContext = React.createContext({
   playlist: [],
   currentSongId: [],
+  animation: [],
   setCurrentSongId: () => {},
+  setAnimation: () => {},
 });
 
 Date.prototype.addHours = function (h) {
@@ -35,6 +37,7 @@ const PlaylistProvider = ({ children }) => {
   const { content } = useContext(ContentContext);
   const [playlist, dispatch] = useReducer(reducer, []);
   const [currentSongId, setCurrentSongId] = useState(0);
+  const [animation, setAnimation] = useState('none');
 
   useEffect(() => {
     if (playlists.length === 0) {
@@ -59,7 +62,9 @@ const PlaylistProvider = ({ children }) => {
   }, [playlists]);
 
   return (
-    <PlaylistContext.Provider value={{ playlist, currentSongId, setCurrentSongId }}>
+    <PlaylistContext.Provider
+      value={{ playlist, currentSongId, animation, setCurrentSongId, setAnimation }}
+    >
       {children}
     </PlaylistContext.Provider>
   );
