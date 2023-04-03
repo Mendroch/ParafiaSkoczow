@@ -34,13 +34,15 @@ const reducer = (state, action) => {
 
 const PlaylistProvider = ({ children }) => {
   const { playlists } = useContext(FirebaseContext);
-  const { content } = useContext(ContentContext);
+  const { content, whetherOpenLoading } = useContext(ContentContext);
   const [playlist, dispatch] = useReducer(reducer, []);
   const [currentSongId, setCurrentSongId] = useState(0);
   const [animation, setAnimation] = useState('none');
+  const [isContent, setIsContent] = useState(!whetherOpenLoading());
 
-  useEffect(() => {
-    if (playlists.length === 0) {
+  const updatePlaylist = () => {
+    if (whetherOpenLoading()) return;
+    if (!playlists.length) {
       dispatch({ value: [] });
       return;
     }
@@ -58,8 +60,17 @@ const PlaylistProvider = ({ children }) => {
         }
       }
     });
+  };
+
+  useEffect(() => {
+    updatePlaylist();
     // eslint-disable-next-line
-  }, [playlists]);
+  }, [playlists, isContent]);
+
+  useEffect(() => {
+    setIsContent(!whetherOpenLoading());
+    // eslint-disable-next-line
+  }, [content]);
 
   return (
     <PlaylistContext.Provider

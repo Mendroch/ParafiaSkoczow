@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ViewWrapper } from 'components/atoms/ViewWrapper/ViewWrapper';
 import { ContentContext } from 'providers/ContentProvider';
@@ -19,8 +19,14 @@ const Playlist = () => {
   const { pinchingStart, pinchingMove, pinchingEnd } = usePinching();
   const { swipeStart, swipeMove, swipeEnd } = useSwipe();
   const { initial, animate, trasition, exit } = getAnimationProps();
-  const { playlist, currentSongId, animation } = useContext(PlaylistContext);
+  const { playlist, currentSongId, animation, setCurrentSongId } =
+    useContext(PlaylistContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setCurrentSongId(0);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

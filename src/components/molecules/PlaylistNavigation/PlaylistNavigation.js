@@ -24,7 +24,9 @@ const PlaylistNavigation = () => {
         <PrevIcon />
         {currentSongId - 1 >= 0 ? (
           <p>{playlist[currentSongId - 1].name.slice(0, 15)}...</p>
-        ) : null}
+        ) : (
+          <p></p>
+        )}
       </ButtonPrev>
       <ButtonNext
         disabled={currentSongId + 1 >= playlist.length}
@@ -33,7 +35,9 @@ const PlaylistNavigation = () => {
       >
         {currentSongId + 1 < playlist.length ? (
           <p>{playlist[currentSongId + 1].name.slice(0, 18)}...</p>
-        ) : null}
+        ) : (
+          <p></p>
+        )}
         <NextIcon />
       </ButtonNext>
     </Wrapper>
