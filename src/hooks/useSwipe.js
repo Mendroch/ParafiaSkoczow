@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { PlaylistContext } from 'providers/PlaylistProvider';
 
 export const useSwipe = () => {
-  const { currentSongId, playlist, setCurrentSongId, setAnimation } =
+  const { currentSongIndex, playlist, setCurrentSongIndex, setAnimation } =
     useContext(PlaylistContext);
 
   const setId = (id) => {
     setAnimation('fadeInOut');
-    setTimeout(() => setCurrentSongId(id), 100);
+    setTimeout(() => setCurrentSongIndex(id), 100);
     setTimeout(() => setAnimation('none'), 200);
   };
 
@@ -44,10 +44,10 @@ export const useSwipe = () => {
 
   const swipeEnd = (e) => {
     if (isSwiped) {
-      if (moveType === 'Right' && currentSongId > 0) {
-        setId(currentSongId - 1);
-      } else if (moveType === 'Left' && currentSongId + 1 < playlist.length)
-        setId(currentSongId + 1);
+      if (moveType === 'Right' && currentSongIndex > 0) {
+        setId(currentSongIndex - 1);
+      } else if (moveType === 'Left' && currentSongIndex + 1 < playlist.length)
+        setId(currentSongIndex + 1);
       isSwiped = false;
     }
   };

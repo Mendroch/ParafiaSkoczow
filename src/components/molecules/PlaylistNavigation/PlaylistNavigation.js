@@ -5,36 +5,36 @@ import { ReactComponent as NextIcon } from 'assets/icons/arrowRight.svg';
 import { PlaylistContext } from 'providers/PlaylistProvider';
 
 const PlaylistNavigation = () => {
-  const { playlist, currentSongId, animation, setCurrentSongId, setAnimation } =
+  const { playlist, currentSongIndex, animation, setCurrentSongIndex, setAnimation } =
     useContext(PlaylistContext);
 
   const setId = (id) => {
     setAnimation('fadeInOut');
-    setTimeout(() => setCurrentSongId(id), 100);
+    setTimeout(() => setCurrentSongIndex(id), 100);
     setTimeout(() => setAnimation('none'), 200);
   };
 
   return (
     <Wrapper animationName={animation}>
       <ButtonPrev
-        disabled={currentSongId - 1 < 0}
-        isDisabled={currentSongId - 1 < 0}
-        onClick={() => setId(currentSongId - 1)}
+        disabled={currentSongIndex - 1 < 0}
+        isDisabled={currentSongIndex - 1 < 0}
+        onClick={() => setId(currentSongIndex - 1)}
       >
         <PrevIcon />
-        {currentSongId - 1 >= 0 ? (
-          <p>{playlist[currentSongId - 1].name.slice(0, 15)}...</p>
+        {currentSongIndex - 1 >= 0 ? (
+          <p>{playlist[currentSongIndex - 1].name.slice(0, 15)}...</p>
         ) : (
           <p></p>
         )}
       </ButtonPrev>
       <ButtonNext
-        disabled={currentSongId + 1 >= playlist.length}
-        isDisabled={currentSongId + 1 >= playlist.length}
-        onClick={() => setId(currentSongId + 1)}
+        disabled={currentSongIndex + 1 >= playlist.length}
+        isDisabled={currentSongIndex + 1 >= playlist.length}
+        onClick={() => setId(currentSongIndex + 1)}
       >
-        {currentSongId + 1 < playlist.length ? (
-          <p>{playlist[currentSongId + 1].name.slice(0, 18)}...</p>
+        {currentSongIndex + 1 < playlist.length ? (
+          <p>{playlist[currentSongIndex + 1].name.slice(0, 18)}...</p>
         ) : (
           <p></p>
         )}

@@ -5,6 +5,7 @@ import { getFromLS, setToLS } from 'utils/storage';
 
 export const ContentContext = React.createContext({
   content: {},
+  fontSize: '',
   whetherOpenLoading: () => {},
   setType: () => {},
   getContent: () => {},
@@ -12,8 +13,8 @@ export const ContentContext = React.createContext({
   setTextId: () => {},
   getCategory: () => {},
   getType: () => {},
-  fontSize: '',
   updateFontSize: () => {},
+  getPlaylistCategory: () => {},
 });
 
 const queries = {
@@ -35,11 +36,7 @@ const reducer = (state, action) => {
 };
 
 const sortData = (data) => {
-  return data[0]
-    ? data.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      })
-    : data;
+  return data[0] ? data.sort((a, b) => a.name.localeCompare(b.name)) : data;
 };
 
 const ContentProvider = ({ children }) => {
@@ -132,6 +129,12 @@ const ContentProvider = ({ children }) => {
     }
   };
 
+  const getPlaylistCategory = (type, category_id) => {
+    return type === 'song'
+      ? content.songsCategories.find((category) => category.id === category_id).name
+      : content.prayersCategories.find((category) => category.id === category_id).name;
+  };
+
   const getContent = () => {
     switch (location) {
       case '/categories':
@@ -193,6 +196,7 @@ const ContentProvider = ({ children }) => {
     <ContentContext.Provider
       value={{
         content,
+        fontSize,
         whetherOpenLoading,
         setType,
         getContent,
@@ -200,8 +204,8 @@ const ContentProvider = ({ children }) => {
         setTextId,
         getCategory,
         getType,
-        fontSize,
         updateFontSize,
+        getPlaylistCategory,
       }}
     >
       {children}

@@ -4,9 +4,9 @@ import { ContentContext } from './ContentProvider';
 
 export const PlaylistContext = React.createContext({
   playlist: [],
-  currentSongId: [],
+  currentSongIndex: [],
   animation: [],
-  setCurrentSongId: () => {},
+  setCurrentSongIndex: () => {},
   setAnimation: () => {},
 });
 
@@ -26,9 +26,19 @@ const toString = (elem) => {
 
 const reducer = (state, action) => {
   let playlist = [];
-  action.value.forEach((elem) => {
-    playlist.push(action.content.find((element) => element.id === elem));
-  });
+  if (action.value.length) {
+    action.value.forEach((id, index) => {
+      if (id.slice(0, 4) === 'song')
+        playlist.push(
+          action.content.songs.find((elem) => elem.id === Number(id.slice(6)))
+        );
+      else
+        playlist.push(
+          action.content.prayers.find((elem) => elem.id === Number(id.slice(6)))
+        );
+      playlist[index].type = id.slice(0, 4);
+    });
+  }
   return playlist;
 };
 
@@ -36,7 +46,7 @@ const PlaylistProvider = ({ children }) => {
   const { playlists } = useContext(FirebaseContext);
   const { content, whetherOpenLoading } = useContext(ContentContext);
   const [playlist, dispatch] = useReducer(reducer, []);
-  const [currentSongId, setCurrentSongId] = useState(0);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [animation, setAnimation] = useState('none');
   const [isContent, setIsContent] = useState(!whetherOpenLoading());
 
@@ -50,10 +60,11 @@ const PlaylistProvider = ({ children }) => {
     let i = 0;
     playlists.forEach((elem) => {
       if (i === 0) {
+        const temporaryContent = JSON.parse(JSON.stringify(content));
         let startingDate = toString(elem.day);
         elem.day.addHours(elem.expiration.hour).addMinutes(elem.expiration.minute);
         if (startingDate <= currentDate && toString(elem.day) >= currentDate) {
-          dispatch({ value: elem.playlist, content: content.songs });
+          dispatch({ value: elem.playlist, content: temporaryContent });
           i++;
         } else {
           dispatch({ value: [] });
@@ -74,7 +85,7 @@ const PlaylistProvider = ({ children }) => {
 
   return (
     <PlaylistContext.Provider
-      value={{ playlist, currentSongId, animation, setCurrentSongId, setAnimation }}
+      value={{ playlist, currentSongIndex, animation, setCurrentSongIndex, setAnimation }}
     >
       {children}
     </PlaylistContext.Provider>

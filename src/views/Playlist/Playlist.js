@@ -15,16 +15,16 @@ const createContent = (content) => {
 };
 
 const Playlist = () => {
-  const { getCategory, fontSize } = useContext(ContentContext);
+  const { getPlaylistCategory, fontSize } = useContext(ContentContext);
   const { pinchingStart, pinchingMove, pinchingEnd } = usePinching();
   const { swipeStart, swipeMove, swipeEnd } = useSwipe();
   const { initial, animate, trasition, exit } = getAnimationProps();
-  const { playlist, currentSongId, animation, setCurrentSongId } =
+  const { playlist, currentSongIndex, animation, setCurrentSongIndex } =
     useContext(PlaylistContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCurrentSongId(0);
+    setCurrentSongIndex(0);
     // eslint-disable-next-line
   }, []);
 
@@ -39,7 +39,12 @@ const Playlist = () => {
         >
           <Navigation type={'Teksty teraz'} noSearchLink={true} />
           <StyledCategory animationName={animation}>
-            <p>{getCategory(playlist[currentSongId].category_id)}</p>
+            <p>
+              {getPlaylistCategory(
+                playlist[currentSongIndex].type,
+                playlist[currentSongIndex].category_id
+              )}
+            </p>
           </StyledCategory>
           <Wrapper
             fontSize={fontSize}
@@ -57,11 +62,11 @@ const Playlist = () => {
             }}
           >
             <TextTitle animationName={animation}>
-              {playlist[currentSongId].name}
+              {playlist[currentSongIndex].name}
             </TextTitle>
             <Text
               animationName={animation}
-              dangerouslySetInnerHTML={createContent(playlist[currentSongId].content)}
+              dangerouslySetInnerHTML={createContent(playlist[currentSongIndex].content)}
             />
           </Wrapper>
           <PlaylistNavigation />
