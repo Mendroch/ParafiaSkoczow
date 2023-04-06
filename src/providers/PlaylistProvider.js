@@ -60,11 +60,10 @@ const PlaylistProvider = ({ children }) => {
     let i = 0;
     playlists.forEach((elem) => {
       if (i === 0) {
-        const temporaryContent = JSON.parse(JSON.stringify(content));
         let startingDate = toString(elem.day);
         elem.day.addHours(elem.expiration.hour).addMinutes(elem.expiration.minute);
         if (startingDate <= currentDate && toString(elem.day) >= currentDate) {
-          dispatch({ value: elem.playlist, content: temporaryContent });
+          dispatch({ value: elem.playlist, content: content });
           i++;
         } else {
           dispatch({ value: [] });
