@@ -24,9 +24,10 @@ const Playlist = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!playlist.length) navigate('/');
     setCurrentSongIndex(0);
     // eslint-disable-next-line
-  }, []);
+  }, [playlist]);
 
   return (
     <>
@@ -71,9 +72,7 @@ const Playlist = () => {
           </Wrapper>
           <PlaylistNavigation />
         </ViewWrapper>
-      ) : (
-        navigate('/')
-      )}
+      ) : null}
     </>
   );
 };

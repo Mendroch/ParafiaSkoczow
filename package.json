@@ -1,7 +1,7 @@
 {
   "name": "parafiaskoczow",
   "displayName": "Parafia Skoczów",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Aplikacja dla parafii Rzymskokatolickiej pw.św.ap. Piotra i Pawła w Skoczowie",
   "homepage": "./",
   "main": "index.js",
@@ -100,6 +100,7 @@
     "cordova-android": "^11.0.0",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-plugin-screen-orientation": "^3.0.3",
     "prettier": "^2.8.4"
   },
   "cordova": {

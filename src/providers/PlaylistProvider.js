@@ -84,7 +84,13 @@ const PlaylistProvider = ({ children }) => {
 
   return (
     <PlaylistContext.Provider
-      value={{ playlist, currentSongIndex, animation, setCurrentSongIndex, setAnimation }}
+      value={{
+        playlist,
+        currentSongIndex,
+        animation,
+        setCurrentSongIndex,
+        setAnimation,
+      }}
     >
       {children}
     </PlaylistContext.Provider>

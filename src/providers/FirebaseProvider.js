@@ -7,14 +7,14 @@ export const FirebaseContext = React.createContext({
 });
 
 const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-  measurementId: '',
+  apiKey: 'AIzaSyDke8FddhWV--DMXb3Bjs9JaMSS__BG0tY',
+  authDomain: 'organistaplaylist.firebaseapp.com',
+  databaseURL: 'https://organistaplaylist-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'organistaplaylist',
+  storageBucket: 'organistaplaylist.appspot.com',
+  messagingSenderId: '846195840054',
+  appId: '1:846195840054:web:e32a9d5bb6302e69f1f497',
+  measurementId: 'G-2L6FQCMGBG',
 };
 
 const FirebaseProvider = ({ children }) => {
