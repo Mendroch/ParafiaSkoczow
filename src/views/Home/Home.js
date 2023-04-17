@@ -16,7 +16,8 @@ import { getAnimationProps } from 'helpers/getAnimationProps';
 import { PlaylistContext } from 'providers/PlaylistProvider';
 
 const Home = () => {
-  const { content, whetherOpenLoading, setType } = useContext(ContentContext);
+  const { content, transmisionUrl, whetherOpenLoading, setType } =
+    useContext(ContentContext);
   const { playlist } = useContext(PlaylistContext);
   const { isOpen, handleOpenModal, handleCloseModal } = useModal();
   const { initial, animate, trasition, exit } = getAnimationProps();
@@ -40,13 +41,11 @@ const Home = () => {
             </NavLink>
           </PlaylistLink>
         ) : null}
-        <a
-          href="https://www.youtube.com/embed/?listType=playlist&list=UUnKWrqGFWFbwGC6LhBcK8GA&autoplay=1"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TRANSMISJA ONLINE
-        </a>
+        {transmisionUrl ? (
+          <a href={transmisionUrl} target="_blank" rel="noopener noreferrer">
+            TRANSMISJA ONLINE
+          </a>
+        ) : null}
         <NavLink to="/categories" onClick={() => setType('songs')}>
           PIEŚNI
         </NavLink>

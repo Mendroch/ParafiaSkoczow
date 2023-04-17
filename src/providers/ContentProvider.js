@@ -2,10 +2,12 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { getFromLS, setToLS } from 'utils/storage';
+import { getLatestVideoUrl } from 'helpers/getTransmissionUrl';
 
 export const ContentContext = React.createContext({
   content: {},
   fontSize: '',
+  transmisionUrl: '',
   whetherOpenLoading: () => {},
   setType: () => {},
   getContent: () => {},
@@ -45,8 +47,20 @@ const ContentProvider = ({ children }) => {
   const [categoryId, setCategoryId] = useState('');
   const [textId, setTextId] = useState('');
   const [fontSize, setFontSize] = useState(getFromLS('textSize'));
+  const [transmisionUrl, setTransmisionUrl] = useState();
   const [error, setError] = useState('');
   let location = useLocation().pathname;
+
+  useEffect(() => {
+    let urlFromLS = getFromLS('transmissionUrl');
+    if (urlFromLS.length) setTransmisionUrl(urlFromLS);
+    getLatestVideoUrl()
+      .then((url) => {
+        setTransmisionUrl(url);
+        setToLS('transmissionUrl', url);
+      })
+      .catch((error) => setError(error));
+  }, []);
 
   const updateFontSize = (size) => {
     setFontSize(size);
@@ -197,6 +211,7 @@ const ContentProvider = ({ children }) => {
       value={{
         content,
         fontSize,
+        transmisionUrl,
         whetherOpenLoading,
         setType,
         getContent,
