@@ -41,7 +41,7 @@ const Home = () => {
           </PlaylistLink>
         ) : null}
         <a
-          href="https://www.youtube.com/watch?v=xSdIBGA0-7I&ab_channel=ParafiaSkocz%C3%B3w-transmisjaonline"
+          href="https://www.youtube.com/embed/?listType=playlist&list=UUnKWrqGFWFbwGC6LhBcK8GA&autoplay=1"
           target="_blank"
           rel="noopener noreferrer"
         >
