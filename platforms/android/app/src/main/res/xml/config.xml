@@ -22,4 +22,10 @@
     <preference name="AndroidWindowSplashScreenBackground" value="#1b7290" />
     <preference name="BackgroundColor" value="#1b7290" />
     <preference name="StatusBarBackgroundColor" value="#1b7290" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="inAppUpdate">
+        <param name="android-package" value="com.update.background.inAppUpdate" />
+    </feature>
 </widget>

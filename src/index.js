@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Root from 'views/Root';
 import '@atlaskit/css-reset';
 import * as serviceWorker from './serviceWorker';
+import { checkUpdate } from 'helpers/checkUpdate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,6 +14,8 @@ const startApp = () => {
     </React.StrictMode>
   );
   serviceWorker.register();
+  // eslint-disable-next-line
+  if (typeof device !== 'undefined') checkUpdate();
 };
 
 if (window.cordova) {

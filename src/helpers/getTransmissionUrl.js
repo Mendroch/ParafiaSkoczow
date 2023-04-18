@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function getLatestVideoUrl() {
+export const getLatestVideoUrl = async () => {
   const channelId = 'UCnKWrqGFWFbwGC6LhBcK8GA';
   const apiKey = 'AIzaSyDke8FddhWV--DMXb3Bjs9JaMSS__BG0tY';
   const youtubeApiBaseUrl = 'https://www.googleapis.com/youtube/v3';
@@ -30,4 +30,4 @@ export async function getLatestVideoUrl() {
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   return videoUrl;
-}
+};

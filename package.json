@@ -6,7 +6,7 @@
   "homepage": "./",
   "main": "index.js",
   "dependencies": {
-    "@atlaskit/css-reset": "^6.3.19",
+    "@atlaskit/css-reset": "^6.3.21",
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
@@ -99,8 +99,10 @@
   "devDependencies": {
     "cordova-android": "^11.0.0",
     "cordova-ios": "^6.2.0",
-    "cordova-plugin-statusbar": "^3.0.0",
+    "cordova-plugin-device": "^2.1.0",
+    "cordova-plugin-inappupdate": "^1.0.1",
     "cordova-plugin-screen-orientation": "^3.0.3",
+    "cordova-plugin-statusbar": "^3.0.0",
     "prettier": "^2.8.4"
   },
   "cordova": {
@@ -108,6 +110,9 @@
       "ios",
       "android"
     ],
-    "plugins": {}
+    "plugins": {
+      "cordova-plugin-device": {},
+      "cordova-plugin-inappupdate": {}
+    }
   }
 }

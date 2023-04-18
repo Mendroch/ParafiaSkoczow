@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.cac80ff2.css",
-    "main.js": "./static/js/main.552b33a4.js",
+    "main.css": "./static/css/main.e2a4cc42.css",
+    "main.js": "./static/js/main.d719e755.js",
     "static/media/FiraSans-Bold.ttf": "./static/media/FiraSans-Bold.b2c1d356b236acbad8ef.ttf",
     "static/media/FiraSans-Medium.ttf": "./static/media/FiraSans-Medium.d11d9e14e00fc1a96751.ttf",
     "static/media/FiraSans-Regular.ttf": "./static/media/FiraSans-Regular.f4eb295ecc2fb842d61c.ttf",
@@ -11,11 +11,11 @@
     "static/media/search.svg": "./static/media/search.3f4e90d932a1b8a1a6b02a95558b0176.svg",
     "static/media/arrowRight.svg": "./static/media/arrowRight.20e772bb858ee85f1a141ca3f8ec4ab1.svg",
     "static/media/arrowLeft.svg": "./static/media/arrowLeft.c6bd01fcebfb151bb1cf9fd85c14ccd6.svg",
-    "main.cac80ff2.css.map": "./static/css/main.cac80ff2.css.map",
-    "main.552b33a4.js.map": "./static/js/main.552b33a4.js.map"
+    "main.e2a4cc42.css.map": "./static/css/main.e2a4cc42.css.map",
+    "main.d719e755.js.map": "./static/js/main.d719e755.js.map"
   },
   "entrypoints": [
-    "static/css/main.cac80ff2.css",
-    "static/js/main.552b33a4.js"
+    "static/css/main.e2a4cc42.css",
+    "static/js/main.d719e755.js"
   ]
 }

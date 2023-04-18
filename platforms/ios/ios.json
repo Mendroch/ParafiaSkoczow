@@ -7,13 +7,45 @@
     "files": {
       "config.xml": {
         "parents": {
-          "/*": []
+          "/*": [
+            {
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "count": 1
+            }
+          ]
         }
       }
     }
   },
-  "installed_plugins": {},
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-inappupdate": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    }
+  },
   "dependent_plugins": {},
-  "modules": [],
-  "plugin_metadata": {}
+  "modules": [
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappupdate.inAppUpdate",
+      "file": "plugins/cordova-plugin-inappupdate/www/inAppUpdate.js",
+      "pluginId": "cordova-plugin-inappupdate",
+      "clobbers": [
+        "inAppUpdate"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-device": "2.1.0",
+    "cordova-plugin-inappupdate": "1.0.1"
+  }
 }

@@ -15,6 +15,14 @@
             {
               "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"inAppUpdate\"><param name=\"android-package\" value=\"com.update.background.inAppUpdate\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -23,6 +31,12 @@
   },
   "installed_plugins": {
     "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczow"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczow"
+    },
+    "cordova-plugin-inappupdate": {
       "PACKAGE_NAME": "pl.optimalit.parafiaskoczow"
     }
   },
@@ -35,9 +49,27 @@
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappupdate.inAppUpdate",
+      "file": "plugins/cordova-plugin-inappupdate/www/inAppUpdate.js",
+      "pluginId": "cordova-plugin-inappupdate",
+      "clobbers": [
+        "inAppUpdate"
+      ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-statusbar": "3.0.0"
+    "cordova-plugin-statusbar": "3.0.0",
+    "cordova-plugin-device": "2.1.0",
+    "cordova-plugin-inappupdate": "1.0.1"
   }
 }
