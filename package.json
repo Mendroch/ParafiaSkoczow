@@ -23,6 +23,7 @@
     "camelcase": "^6.2.1",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "cordova": "^11.1.0",
+    "cordova-plugin-app-update": "^2.0.2",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
@@ -99,8 +100,8 @@
   "devDependencies": {
     "cordova-android": "^11.0.0",
     "cordova-ios": "^6.2.0",
+    "cordova-plugin-app-version": "^0.1.14",
     "cordova-plugin-device": "^2.1.0",
-    "cordova-plugin-inappupdate": "^1.0.1",
     "cordova-plugin-screen-orientation": "^3.0.3",
     "cordova-plugin-statusbar": "^3.0.0",
     "prettier": "^2.8.4"
@@ -112,7 +113,9 @@
     ],
     "plugins": {
       "cordova-plugin-device": {},
-      "cordova-plugin-inappupdate": {}
+      "cordova-plugin-app-version": {},
+      "cordova-plugin-market": {},
+      "cordova-plugin-inappbrowser": {}
     }
   }
 }

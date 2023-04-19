@@ -13,8 +13,14 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
+		6A10737774984E949E74279B /* CDVMarket.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DF62416D6D4167AC6D64B2 /* CDVMarket.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		E59AB52B67EF4D3BAED4B4AC /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4435B07263594DA0BC3C3C8D /* AppVersion.m */; };
 		EB16BCFC74824315A7061561 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B8FF82A1B40DF873F933B /* CDVDevice.m */; };
+		1439384F3EE049B88071807D /* CDVInAppBrowserOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB33CFD49E24CDA9B91EFB5 /* CDVInAppBrowserOptions.m */; };
+		60694F4AA0E64DD49464E4D8 /* CDVInAppBrowserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 196713E0D12149C79B385126 /* CDVInAppBrowserNavigationController.m */; };
+		11881E02AE414963ADD0B9D4 /* CDVWKInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6E3EB7EB4D4AC5A09EA841 /* CDVWKInAppBrowser.m */; };
+		792DCCE48DF54934AABDF7B6 /* CDVWKInAppBrowserUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B640ECC77A4EC2B0F56C08 /* CDVWKInAppBrowserUIDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025B19EFD3642A5933B8E4F /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Parafia Skoczów/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Parafia Skoczów.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parafia Skoczów.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		262395B4729246A69C0EA555 /* AppVersion.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = AppVersion.h; path = "cordova-plugin-app-version/AppVersion.h"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
@@ -56,14 +64,24 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* Parafia Skoczów-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Parafia Skoczów-Prefix.pch"; sourceTree = "<group>"; };
+		4435B07263594DA0BC3C3C8D /* AppVersion.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = AppVersion.m; path = "cordova-plugin-app-version/AppVersion.m"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = "Parafia Skoczów/CDVLaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Parafia Skoczów-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Parafia Skoczów-Info.plist"; path = "Parafia Skoczów/Parafia Skoczów-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		E6DF62416D6D4167AC6D64B2 /* CDVMarket.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVMarket.m; path = "cordova-plugin-market/CDVMarket.m"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F22B8FF82A1B40DF873F933B /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
+		F39790A677014373A9C94B97 /* CDVMarket.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVMarket.h; path = "cordova-plugin-market/CDVMarket.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Parafia Skoczów/config.xml"; sourceTree = "<group>"; };
-		F22B8FF82A1B40DF873F933B /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		0025B19EFD3642A5933B8E4F /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		FEB33CFD49E24CDA9B91EFB5 /* CDVInAppBrowserOptions.m */ = {isa = PBXFileReference; name = "CDVInAppBrowserOptions.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		196713E0D12149C79B385126 /* CDVInAppBrowserNavigationController.m */ = {isa = PBXFileReference; name = "CDVInAppBrowserNavigationController.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		ED6E3EB7EB4D4AC5A09EA841 /* CDVWKInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVWKInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		44B640ECC77A4EC2B0F56C08 /* CDVWKInAppBrowserUIDelegate.m */ = {isa = PBXFileReference; name = "CDVWKInAppBrowserUIDelegate.m"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8704A81776E84B9D9E56B707 /* CDVInAppBrowserOptions.h */ = {isa = PBXFileReference; name = "CDVInAppBrowserOptions.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserOptions.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		06B91E9A829742D5AD308727 /* CDVInAppBrowserNavigationController.h */ = {isa = PBXFileReference; name = "CDVInAppBrowserNavigationController.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowserNavigationController.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		76AD1FF153F847DB93D6AB93 /* CDVWKInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVWKInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		E7CF761FA88948F5935DCA8A /* CDVWKInAppBrowserUIDelegate.h */ = {isa = PBXFileReference; name = "CDVWKInAppBrowserUIDelegate.h"; path = "cordova-plugin-inappbrowser/CDVWKInAppBrowserUIDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +188,18 @@
 			children = (
 				F22B8FF82A1B40DF873F933B /* CDVDevice.m */,
 				0025B19EFD3642A5933B8E4F /* CDVDevice.h */,
+				4435B07263594DA0BC3C3C8D /* AppVersion.m */,
+				262395B4729246A69C0EA555 /* AppVersion.h */,
+				E6DF62416D6D4167AC6D64B2 /* CDVMarket.m */,
+				F39790A677014373A9C94B97 /* CDVMarket.h */,
+				FEB33CFD49E24CDA9B91EFB5 /* CDVInAppBrowserOptions.m */,
+				196713E0D12149C79B385126 /* CDVInAppBrowserNavigationController.m */,
+				ED6E3EB7EB4D4AC5A09EA841 /* CDVWKInAppBrowser.m */,
+				44B640ECC77A4EC2B0F56C08 /* CDVWKInAppBrowserUIDelegate.m */,
+				8704A81776E84B9D9E56B707 /* CDVInAppBrowserOptions.h */,
+				06B91E9A829742D5AD308727 /* CDVInAppBrowserNavigationController.h */,
+				76AD1FF153F847DB93D6AB93 /* CDVWKInAppBrowser.h */,
+				E7CF761FA88948F5935DCA8A /* CDVWKInAppBrowserUIDelegate.h */,
 			);
 			name = Plugins;
 			path = "Parafia Skoczów/Plugins";
@@ -294,6 +324,12 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				EB16BCFC74824315A7061561 /* CDVDevice.m in Sources */,
+				E59AB52B67EF4D3BAED4B4AC /* AppVersion.m in Sources */,
+				6A10737774984E949E74279B /* CDVMarket.m in Sources */,
+				1439384F3EE049B88071807D /* CDVInAppBrowserOptions.m in Sources */,
+				60694F4AA0E64DD49464E4D8 /* CDVInAppBrowserNavigationController.m in Sources */,
+				11881E02AE414963ADD0B9D4 /* CDVWKInAppBrowser.m in Sources */,
+				792DCCE48DF54934AABDF7B6 /* CDVWKInAppBrowserUIDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

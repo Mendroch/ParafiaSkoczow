@@ -11,6 +11,18 @@
             {
               "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"AppVersion\"><param name=\"ios-package\" value=\"AppVersion\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Market\"><param name=\"ios-package\" value=\"CDVMarket\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVWKInAppBrowser\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -22,6 +34,15 @@
       "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
     },
     "cordova-plugin-inappupdate": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-market": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
     }
   },
@@ -42,10 +63,37 @@
       "clobbers": [
         "inAppUpdate"
       ]
+    },
+    {
+      "id": "cordova-plugin-app-version.AppVersionPlugin",
+      "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+      "pluginId": "cordova-plugin-app-version",
+      "clobbers": [
+        "cordova.getAppVersion"
+      ]
+    },
+    {
+      "id": "cordova-plugin-market.Market",
+      "file": "plugins/cordova-plugin-market/www/market.js",
+      "pluginId": "cordova-plugin-market",
+      "clobbers": [
+        "cordova.plugins.market"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-device": "2.1.0",
-    "cordova-plugin-inappupdate": "1.0.1"
+    "cordova-plugin-inappupdate": "1.0.1",
+    "cordova-plugin-app-version": "0.1.14",
+    "cordova-plugin-market": "1.2.0",
+    "cordova-plugin-inappbrowser": "5.0.0"
   }
 }

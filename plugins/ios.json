@@ -12,6 +12,15 @@
     },
     "cordova-plugin-inappupdate": {
       "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-market": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "pl.optimalit.parafiaskoczoww"
     }
   },
   "dependent_plugins": {}

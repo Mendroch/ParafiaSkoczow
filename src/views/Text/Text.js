@@ -12,7 +12,7 @@ const createContent = (content) => {
 };
 
 const checkLocation = (type) => {
-  return type === 'Ogłoszenia' || type === 'Intencje mszalne';
+  return type === 'Ogłoszenia' || type === 'Intencje mszy';
 };
 
 const Text = () => {
