@@ -3,13 +3,11 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { getFromLS, setToLS } from 'utils/storage';
 import { getLatestVideoUrl } from 'helpers/getTransmissionUrl';
-import { checkUpdate } from 'helpers/checkUpdate';
 
 export const ContentContext = React.createContext({
   content: {},
   fontSize: '',
   transmisionUrl: '',
-  storeUrl: '',
   whetherOpenLoading: () => {},
   setType: () => {},
   getContent: () => {},
@@ -50,12 +48,10 @@ const ContentProvider = ({ children }) => {
   const [textId, setTextId] = useState('');
   const [fontSize, setFontSize] = useState(getFromLS('textSize'));
   const [transmisionUrl, setTransmisionUrl] = useState();
-  const [storeUrl, setStoreUrl] = useState(false);
   const [error, setError] = useState('');
   let location = useLocation().pathname;
 
   useEffect(() => {
-    // Download transmission link
     let urlFromLS = getFromLS('transmissionUrl');
     if (urlFromLS.length) setTransmisionUrl(urlFromLS);
     getLatestVideoUrl()
@@ -64,11 +60,6 @@ const ContentProvider = ({ children }) => {
         setToLS('transmissionUrl', url);
       })
       .catch((error) => setError(error));
-
-    // Check if update is awailable
-    checkUpdate().then((data) => {
-      document.addEventListener('deviceready', () => setStoreUrl(data), false);
-    });
   }, []);
 
   const updateFontSize = (size) => {
@@ -221,7 +212,6 @@ const ContentProvider = ({ children }) => {
         content,
         fontSize,
         transmisionUrl,
-        storeUrl,
         whetherOpenLoading,
         setType,
         getContent,
