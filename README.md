@@ -20,3 +20,26 @@ The application can be a great help in daily individual and community prayer.
 * liturgy
 * announcements
 * intentions of the mass
+
+## Download
+[App Store](https://apps.apple.com/pl/app/parafia-skocz%C3%B3w/id6444475296)
+
+[Google Play](https://play.google.com/store/apps/details?id=pl.optimalit.parafiaskoczow&gl=PL)
+
+## Setup
+
+Clone this repository `git clone https://github.com/Mendroch/modlitewnik_v4.git`
+
+Go into the repository `cd modlitewnik_v4`
+
+Install dependencies `npm install`
+
+Run the app `npm start`
+
+## Build new version
+
+Build project `npm run build`
+
+Rename folder build -> www
+
+Build Cordova project `cordova build android --release` or `cordova build ios --release`
