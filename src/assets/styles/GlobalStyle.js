@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import FiraSansLight from 'assets/fonts/FiraSans-Light.ttf';
 import FiraSansRegular from 'assets/fonts/FiraSans-Regular.ttf';
 import FiraSansMedium from 'assets/fonts/FiraSans-Medium.ttf';
 import FiraSansSemiBold from 'assets/fonts/FiraSans-Bold.ttf';
@@ -11,6 +12,11 @@ export const GlobalStyle = createGlobalStyle`
   
   *, *::after, *::before {
     box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: "FiraSansLight";
+    src: url(${FiraSansLight}) format('truetype');
   }
 
   @font-face {

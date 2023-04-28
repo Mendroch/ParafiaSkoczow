@@ -2,21 +2,23 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 17px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 32px;
+  height: 32px;
 `;
 
 export const Group = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSize.l};
   font-family: 'FiraSansRegular';
+  height: 100%;
 
   p {
-    margin-top: 0px;
     margin-left: 40px;
   }
 `;
@@ -26,11 +28,11 @@ export const BackButton = styled.button`
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: -7.5px;
+  top: -4px;
   left: -7.5px;
   width: 40px;
   height: 40px;
-  background-color: transparent;
+  background: transparent;
   border: none;
 
   svg {
