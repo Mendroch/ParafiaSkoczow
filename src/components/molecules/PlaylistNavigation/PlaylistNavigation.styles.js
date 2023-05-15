@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
     }
 
     p {
-      margin-top: 0;
       color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.fontSize.m};
       font-family: 'FiraSansMedium';

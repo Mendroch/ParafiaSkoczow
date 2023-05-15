@@ -91,116 +91,65 @@ const ContentProvider = ({ children }) => {
     return Object.keys(content).length < Object.keys(queries).length;
   };
 
-  const selectTitles = (content) => {
-    return content.filter((text) => text.category_id === categoryId);
+  const selectTitles = () => {
+    return content[type].filter((text) => text.category_id === categoryId);
   };
 
-  const selectText = (content) => {
-    return content.find((text) => text.id === textId);
+  const selectText = () => {
+    return content[type].find((text) => text?.id === textId);
   };
 
-  const getType = () => {
-    switch (type) {
-      case 'songs':
-        return 'Pieśni';
-      case 'prayers':
-        return 'Modlitwy';
-      case 'liturgy':
-        return 'Liturgia';
-      case 'announcements':
-        return 'Ogłoszenia';
-      case 'intentions':
-        return 'Intencje mszy';
-      default:
-        return '---';
-    }
+  const contentTypes = {
+    songs: 'Pieśni',
+    prayers: 'Modlitwy',
+    liturgy: 'Liturgia',
+    announcements: 'Ogłoszenia',
+    intentions: 'Intencje mszy',
   };
+
+  const getType = () => contentTypes[type] || '';
 
   const getCategory = (id) => {
-    let categories;
-    switch (type) {
-      case 'songs':
-        categories = content.songsCategories;
-        break;
-      case 'prayers':
-        categories = content.prayersCategories;
-        break;
-      case 'liturgy':
-        categories = content.liturgyCategories;
-        break;
-      case 'playlist':
-        categories = content.songsCategories;
-        break;
-      default:
-        categories = null;
-    }
+    let categories = content[`${type}Categories`];
     if (location === '/titles' || type === 'liturgy') {
-      return categories.find((category) => category.id === categoryId).name;
+      return categories.find((category) => category?.id === categoryId).name;
     } else if (location === '/categories' || location === '/search' || location === '/') {
       return false;
     } else {
-      return id ? categories.find((category) => category.id === id).name : '';
+      return id ? categories.find((category) => category?.id === id).name : '';
     }
   };
 
   const getPlaylistCategory = (type, category_id) => {
     return type === 'song'
-      ? content.songsCategories.find((category) => category.id === category_id).name
-      : content.prayersCategories.find((category) => category.id === category_id).name;
+      ? content.songsCategories.find((category) => category?.id === category_id).name
+      : content.prayersCategories.find((category) => category?.id === category_id).name;
   };
 
   const getContent = () => {
     switch (location) {
       case '/categories':
-        switch (type) {
-          case 'songs':
-            return content.songsCategories;
-          case 'prayers':
-            return content.prayersCategories;
-          case 'liturgy':
-            return content.liturgyCategories;
-          default:
-            return null;
-        }
+        return content[`${type}Categories`];
       case '/titles':
-        switch (type) {
-          case 'songs':
-            return selectTitles(content.songs);
-          case 'prayers':
-            return selectTitles(content.prayers);
-          case 'liturgy':
-            return selectTitles(content.liturgy);
-          default:
-            return null;
-        }
+        return selectTitles();
       case '/text':
         switch (type) {
           case 'songs':
-            return selectText(content.songs);
           case 'prayers':
-            return selectText(content.prayers);
+            return selectText();
           case 'liturgy':
             let category = content.liturgyCategories.find(
-              (category) => category.id === categoryId
+              (category) => category?.id === categoryId
             );
-            if (category.content !== '<p>---</p>') return category;
-            return selectText(content.liturgy);
+            return category.content !== '<p>---</p>' ? category : selectText();
           case 'announcements':
-            return content.announcements;
           case 'intentions':
-            return content.intentions;
+            return content[type];
           default:
             return null;
         }
       case '/search':
-        switch (type) {
-          case 'songs':
-            return content.songs;
-          case 'prayers':
-            return content.prayers;
-          default:
-            return null;
-        }
+        return content[type];
       default:
         return null;
     }

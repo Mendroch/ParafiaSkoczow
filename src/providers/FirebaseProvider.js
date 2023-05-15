@@ -7,7 +7,7 @@ export const FirebaseContext = React.createContext({
 });
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDke8FddhWV--DMXb3Bjs9JaMSS__BG0tY',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'organistaplaylist.firebaseapp.com',
   databaseURL: 'https://organistaplaylist-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'organistaplaylist',

@@ -3,7 +3,7 @@ import { ContentWrapper } from 'components/atoms/ContentWrapper/ContentWrapper';
 import { Category } from 'components/atoms/Category/Category';
 
 export const Wrapper = styled(ContentWrapper)`
-  padding: 17px;
+  padding: 0 17px;
   h1,
   h2,
   h3,
@@ -15,6 +15,7 @@ export const Wrapper = styled(ContentWrapper)`
   span {
     font-size: ${({ fontSize }) => fontSize};
   }
+
   @keyframes fadeInOut {
     50% {
       opacity: 0;

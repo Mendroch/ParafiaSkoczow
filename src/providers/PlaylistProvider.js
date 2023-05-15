@@ -30,11 +30,11 @@ const reducer = (state, action) => {
     action.value.forEach((id, index) => {
       if (id.slice(0, 4) === 'song')
         playlist.push(
-          action.content.songs.find((elem) => elem.id === Number(id.slice(6)))
+          action.content.songs.find((elem) => elem?.id === Number(id.slice(6)))
         );
       else
         playlist.push(
-          action.content.prayers.find((elem) => elem.id === Number(id.slice(6)))
+          action.content.prayers.find((elem) => elem?.id === Number(id.slice(6)))
         );
       playlist[index].type = id.slice(0, 4);
     });
