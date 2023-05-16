@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import { getFromLS, setToLS } from 'utils/storage';
 import { getLatestVideoUrl } from 'helpers/getTransmissionUrl';
+import { getData } from 'helpers/getData';
 
 export const ContentContext = React.createContext({
   content: {},
@@ -37,10 +37,6 @@ const reducer = (state, action) => {
   };
 };
 
-const sortData = (data) => {
-  return data[0] ? data.sort((a, b) => a.name.localeCompare(b.name)) : data;
-};
-
 const ContentProvider = ({ children }) => {
   const [content, dispatch] = useReducer(reducer, getFromLS('content'));
   const [type, setType] = useState('');
@@ -52,6 +48,7 @@ const ContentProvider = ({ children }) => {
   let location = useLocation().pathname;
 
   useEffect(() => {
+    getData(queries, dispatch, setError);
     let urlFromLS = getFromLS('transmissionUrl');
     if (urlFromLS.length) setTransmisionUrl(urlFromLS);
     getLatestVideoUrl()
@@ -66,22 +63,6 @@ const ContentProvider = ({ children }) => {
     setFontSize(size);
     setToLS('textSize', size);
   };
-
-  useEffect(() => {
-    for (const query in queries) {
-      axios
-        .get(queries[query])
-        .then(({ data }) => {
-          dispatch({
-            field: query,
-            value: sortData(data),
-          });
-        })
-        .catch(() => {
-          setError(`Błąd połączenia z internetem`);
-        });
-    }
-  }, []);
 
   useEffect(() => {
     setToLS('content', content);
