@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { ButtonNext, ButtonPrev, Wrapper } from './PlaylistNavigation.styles';
-import { ReactComponent as PrevIcon } from 'assets/icons/arrowLeft.svg';
-import { ReactComponent as NextIcon } from 'assets/icons/arrowRight.svg';
+import { ButtonNext, ButtonPrev, Icon, Wrapper } from './PlaylistNavigation.styles';
 import { PlaylistContext } from 'providers/PlaylistProvider';
+import iconLeft from 'assets/icons/arrowLeft.svg';
+import iconRight from 'assets/icons/arrowRight.svg';
 
 const PlaylistNavigation = () => {
   const { playlist, currentSongIndex, animation, setCurrentSongIndex, setAnimation } =
@@ -21,7 +21,7 @@ const PlaylistNavigation = () => {
         isDisabled={currentSongIndex - 1 < 0}
         onClick={() => setId(currentSongIndex - 1)}
       >
-        <PrevIcon />
+        <Icon src={iconLeft} alt={'arrow icon'} />
         {currentSongIndex - 1 >= 0 ? (
           <p>{playlist[currentSongIndex - 1].name.slice(0, 15)}...</p>
         ) : (
@@ -38,7 +38,7 @@ const PlaylistNavigation = () => {
         ) : (
           <p></p>
         )}
-        <NextIcon />
+        <Icon src={iconRight} alt={'arrow icon'} />
       </ButtonNext>
     </Wrapper>
   );

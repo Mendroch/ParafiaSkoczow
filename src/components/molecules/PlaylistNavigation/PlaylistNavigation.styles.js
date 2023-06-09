@@ -48,3 +48,8 @@ export const ButtonNext = styled.button`
     margin-right: 5px;
   }
 `;
+
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+`;

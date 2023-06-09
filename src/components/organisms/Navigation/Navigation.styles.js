@@ -34,11 +34,6 @@ export const BackButton = styled.button`
   height: 40px;
   background: transparent;
   border: none;
-
-  svg {
-    width: 24px;
-    height: 24px;
-  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -54,4 +49,9 @@ export const StyledLink = styled(NavLink)`
     width: 17px;
     height: 17px;
   }
+`;
+
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
 `;
