@@ -96,11 +96,12 @@
     "cordova-ios": "^6.2.0",
     "cordova-plugin-screen-orientation": "^3.0.3",
     "cordova-plugin-statusbar": "^3.0.0",
+    "es6-promise-plugin": "^4.2.2",
     "eslint": "^8.3.0",
-    "eslint-webpack-plugin": "^3.1.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.1.1",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.4"

@@ -4,6 +4,8 @@ import { Category } from 'components/atoms/Category/Category';
 
 export const Wrapper = styled(ContentWrapper)`
   padding: 0 17px;
+  line-height: 1.4;
+
   h1,
   h2,
   h3,

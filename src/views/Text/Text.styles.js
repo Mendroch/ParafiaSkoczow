@@ -4,6 +4,7 @@ import { ContentWrapper } from 'components/atoms/ContentWrapper/ContentWrapper';
 export const Wrapper = styled(ContentWrapper)`
   padding: 0 17px;
   border-radius: ${({ isDefectiveView }) => (isDefectiveView ? '8px' : 'null')};
+  line-height: 1.4;
 
   h1,
   h2,
